@@ -1,0 +1,56 @@
+﻿@model IEnumerable<project5_6.Models.Laptop>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1><center>Welcome to Sphere</center></h1>
+@using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}           
+<hr>
+<!-- <center><input id="txtAutoComplete" list="dlAutoComplete" type="text"/></center>
+<datalist id="dlAutoComplete"> 
+	<option value="Asus" />
+	<option value="LENOVO" />
+	<option value="HP" />
+	<option value="MACBOOK" />	
+	<option value="ACER" />
+</datalist> -->
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Website CSS style -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico&subset=latin-ext,vietnamese" rel="stylesheet">
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="product.css">
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&subset=latin-ext,vietnamese" rel="stylesheet">
+
+
+		<title>Home page</title>
+	</head>
+	<body>
+		<div class="container">
+	<div class="row">@foreach (var item in Model){
+	
+    	<!-- BEGIN PRODUCTS -->
+  		<div class="col-md-4 col-sm-6">
+    		<span class="thumbnail">
+                <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.image_id"><img src="@Url.Content("~/images/" + item.image_id + ".jpg")" style="width:300;height:240px" class="img-responsive"></a>
+      			<center><h4>@Html.DisplayFor(modelItem => item.brand) - @Html.DisplayFor(modelItem => item.model_name)</h4></center>	
+    		</span>        
+  		</div>
+          }
+		<!-- END PRODUCTS -->
+	</div>
+</div><!-------container----->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	</body>
+</html>

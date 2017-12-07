@@ -1,0 +1,66 @@
+@model IEnumerable<project5_6.Models.Cart>
+
+
+<!-- @using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}            -->
+<hr>
+<!-- <center><input id="txtAutoComplete" list="dlAutoComplete" type="text"/></center>
+<datalist id="dlAutoComplete"> 
+	<option value="Asus" />
+	<option value="LENOVO" />
+	<option value="HP" />
+	<option value="MACBOOK" />	
+	<option value="ACER" />
+</datalist> -->
+@using (Html.BeginForm()) {<p><center>@Html.TextBox("UserString") <input type="submit" value="Search" /></center></p>}           
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body>
+<div class="container">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:30%">Price</th>
+							<!-- <th style="width:8%">Quantity</th> -->
+							<!-- <th style="width:22%" class="text-center">Subtotal</th> -->
+							<th style="width:5%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-th="Product">@foreach (var item in Model){
+								<div class="row">
+                                        <img src="@Url.Content("~/images/" + item.product_id + ".jpg")" style="width:100px;height:100px" class="img-responsive">
+								</div>
+                                }
+							</td>
+							<td data-th="Price">#</td>
+                                <!-- <td data-th="Quantity">
+                                    <input type="number" class="text-center" value="1">
+                                </td> -->
+							<!-- <td data-th="Subtotal" class="text-center">1.99</td> -->
+							<td class="actions" data-th="">
+								<!-- <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button> -->
+								<!-- <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								 -->
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total 1.99</strong></td>
+						</tr>
+						<tr>
+							<td colspan="2" class="hidden-xs"></td>
+							<!-- <td class="hidden-xs text-center"><strong>Total $1.99</strong></td> -->
+						</tr>
+					</tfoot>
+				</table>
+				</td><a asp-area="" asp-controller="Laptop" asp-action="Index" class="btn btn-block"></i> Continue Shopping</a>
+				<a href="#" class="btn btn-success btn-block">Checkout</i></a>
+</div>				
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+@model IEnumerable<project5_6.Models.Laptop>
+
+@{ViewData["Title"] = "Clicked";}
+
+ <div class="container-fluid"> @foreach (var item in Model) {		
+	<div class="container">	
+		<div class="col-sm-7">
+			<br>
+			<div class="col-sm-12">
+			<img src="@Url.Content("~/images/" + item.Id + ".jpg")" class="img-responsive">  
+			<h4><strong>Product description:</strong></h4>
+			<p>@Html.DisplayFor(modelItem => item.description)</p>
+			<br>
+			<table class="table table-bordered">
+				<tbody>
+				<tr class="techSpecRow"><th colspan="2">More specifications</th></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Category: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.category)</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Brand:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.brand)</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Main Storage: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.main_storage)@Html.DisplayFor(modelItem => item.main_storage_type)</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Operating System:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.operating_system)</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Keyboard Layout: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.keyboard_layout)</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Screen Panel Type:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.panel_type)</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Processor: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.processor)</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">RAM:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.ram) GB</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Screen Size:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.screen_size) inch</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Recommended Purpose: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.recommended_purpose)</td></tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+		</div>
+		}
+	</div>
+</div>

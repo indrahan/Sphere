@@ -1,0 +1,155 @@
+@model project5_6.Models.Laptop
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Laptop</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="date_added" class="control-label"></label>
+                <input asp-for="date_added" class="form-control" />
+                <span asp-validation-for="date_added" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="image_id" class="control-label"></label>
+                <input asp-for="image_id" class="form-control" />
+                <span asp-validation-for="image_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="category" class="control-label"></label>
+                <input asp-for="category" class="form-control" />
+                <span asp-validation-for="category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="brand" class="control-label"></label>
+                <input asp-for="brand" class="form-control" />
+                <span asp-validation-for="brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="model_name" class="control-label"></label>
+                <input asp-for="model_name" class="form-control" />
+                <span asp-validation-for="model_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="screen_size" class="control-label"></label>
+                <input asp-for="screen_size" class="form-control" />
+                <span asp-validation-for="screen_size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="panel_type" class="control-label"></label>
+                <input asp-for="panel_type" class="form-control" />
+                <span asp-validation-for="panel_type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="keyboard_layout" class="control-label"></label>
+                <input asp-for="keyboard_layout" class="form-control" />
+                <span asp-validation-for="keyboard_layout" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="operating_system" class="control-label"></label>
+                <input asp-for="operating_system" class="form-control" />
+                <span asp-validation-for="operating_system" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="processor" class="control-label"></label>
+                <input asp-for="processor" class="form-control" />
+                <span asp-validation-for="processor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="graphic_card" class="control-label"></label>
+                <input asp-for="graphic_card" class="form-control" />
+                <span asp-validation-for="graphic_card" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ram" class="control-label"></label>
+                <input asp-for="ram" class="form-control" />
+                <span asp-validation-for="ram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="main_storage" class="control-label"></label>
+                <input asp-for="main_storage" class="form-control" />
+                <span asp-validation-for="main_storage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="main_storage_type" class="control-label"></label>
+                <input asp-for="main_storage_type" class="form-control" />
+                <span asp-validation-for="main_storage_type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="extra_storage" /> @Html.DisplayNameFor(model => model.extra_storage)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="webcam" /> @Html.DisplayNameFor(model => model.webcam)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="hdmi" /> @Html.DisplayNameFor(model => model.hdmi)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="touchscreen" /> @Html.DisplayNameFor(model => model.touchscreen)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="dvd_drive" /> @Html.DisplayNameFor(model => model.dvd_drive)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="staff_picked" /> @Html.DisplayNameFor(model => model.staff_picked)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="recommended_purpose" class="control-label"></label>
+                <input asp-for="recommended_purpose" class="form-control" />
+                <span asp-validation-for="recommended_purpose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

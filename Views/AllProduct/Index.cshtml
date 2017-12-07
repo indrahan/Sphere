@@ -1,0 +1,37 @@
+@model IEnumerable<project5_6.Models.Laptop>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br>
+<!-- @using (Html.BeginForm())
+{
+    <p>Find by brand: @Html.TextBox("SearchString")  
+    <input type="submit" value="Search" /></p>
+} -->
+
+@using (Html.BeginForm()) {
+    <text>ProductBrand: </text>@Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
+    <input type="submit" value="Search"/>
+}
+<br>
+<div class ="container">
+    <div class="row">@foreach (var item in Model) {
+<div class="col-sm-4">
+    <div class="product-item">
+        <div class="pi-img-wrapper">
+        </div>
+        <div class="thumbnail">
+                <a asp-controller="Clicked" name="submit" asp-action="" asp-route-id="@item.image_id"><img src="@Url.Content("~/images/" + item.image_id + ".jpg")" style="width:300;height:240px" class="img-responsive"></a>
+                <br>
+                <table class="table">
+                    <tbody>
+                    <tr class="techSpecRow"><td class="techSpecTD1">&bull;</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)</td></tr>
+                    </tbody>
+				</table>
+                <br>  
+            </div>    
+    </div>
+</div> }
+</div>
+</div>

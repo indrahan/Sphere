@@ -1,0 +1,27 @@
+﻿@model IEnumerable<project5_6.Models.Laptop>
+
+@{ViewData["Title"] = "Clicked";}
+
+ <div class="container-fluid"> @foreach (var item in Model) {		
+	<div class="container">	
+		<div class="col-sm-7">
+			<br>
+			<div class="col-sm-12">
+			<img src="@Url.Content("~/images/" + item.Id + ".jpg")" style="width:300px;height:240px" class="img-responsive">
+			<br>   
+			<h4><strong>Product description:</strong></h4>
+			<p>@Html.DisplayFor(modelItem => item.description)</p>
+			<br>
+			<table class="table table-bordered">
+				<tbody>
+				<tr class="techSpecRow"><th colspan="2">More specifications</th></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Brand: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.brand)</td></tr>
+				<tr class="techSpecRow"><td class="techSpecTD1">Model:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.model_name)</td></tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+		</div>
+		}
+	</div>
+</div>

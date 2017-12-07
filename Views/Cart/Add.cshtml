@@ -1,0 +1,49 @@
+@model IEnumerable<project5_6.Models.Cart>
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Add product to cart</h2>
+
+<h4>Cart</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">@foreach (var item in Model){
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="order_no" class="control-label"></label>
+                <input asp-for="order_no" class="form-control" />
+                <span asp-validation-for="order_no" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="user_id" class="control-label"></label>
+                <input asp-for="user_id" class="form-control" value="@Html.DisplayFor(modelItem => item.product_id)" />
+                <span asp-validation-for="user_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_id" class="control-label"></label>
+                <input asp-for="product_id" class="form-control" value="@Html.DisplayFor(modelItem => item.product_id)" />
+                <span asp-validation-for="product_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="quantity" class="control-label"></label>
+                <input asp-for="quantity" class="form-control" value="1" />
+                <span asp-validation-for="quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-default" />
+            </div>
+        </form>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

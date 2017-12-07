@@ -1,0 +1,25 @@
+@model IEnumerable<project5_6.Models.Cart>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2><center>Your wish list</center></h2>
+<hr>
+
+<div class="container">
+	<div class="row">
+        <div id="catlist">
+    <dl>@foreach (var item in Model){
+		<dt><img src="@Url.Content("~/images/" + item.product_id + ".jpg")" style="width:140px;height:140px" class="img-responsive"><div class="col-sm-15">
+		<strong>Some info text here</strong><a href="#">The Name of the Product Goes here</a></dt>
+		<dd>
+			<p>The description of whatever the heading is about goes here. The description of whatever the heading is about goes here.The description of whatever the heading is about goes here.</p>
+		</dd>
+		    @Html.ActionLink("Add to cart","Create2",new {image_id = @item.Id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
+		<hr>
+		}
+	</dl>
+</div>	
+	</div>
+</div>

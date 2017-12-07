@@ -1,0 +1,42 @@
+@model project5_6.Models.Cart
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cart</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.order_no)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.order_no)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.user_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.user_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.product_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.product_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

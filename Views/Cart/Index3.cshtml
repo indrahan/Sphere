@@ -1,0 +1,40 @@
+@model IEnumerable<project5_6.Models.Cart>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+<br>
+	<h1><center>Shopping Cart</center></h1><hr>
+	<table class="table table-striped table-hover table-bordered">
+        <tbody>
+            <tr>
+				<th>Product</th>
+                <th>Brand | Model Name</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Delete Item</th>
+            </tr>
+			@foreach(var item in Model){
+            <tr>
+                <td><img src="@Url.Content("~/images/" + item.product_id + ".jpg")" style="width:100px;height:100px" class="img-responsive"></td>
+                <td>@item.brand | @item.model_name</td>
+                <td>@item.quantity</td>
+                <td>&euro; @item.price</td>
+                <td>@Html.ActionLink("Delete product","Delete3",new {id = @item.Id})</td>
+            </tr>
+			}
+			
+            <tr>
+                <th colspan="4"><span class="pull-right">Total Price</span></th>
+                <th>&euro; @ViewBag.TotalPrice</th>
+            </tr>
+            <tr>
+                <td><a asp-area="" asp-controller="Laptop" asp-action="Index" class="btn btn-primary">Continue Shopping</a></td>
+                <td colspan="4"><a asp-area="" asp-controller="Cart" asp-action="Checkout" class="pull-right btn btn-success">Checkout</a></td>
+            </tr>
+        </tbody>
+    </table>          
+      
+</div>
