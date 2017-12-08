@@ -12,14 +12,15 @@
     <p>Find by brand: @Html.TextBox("SearchString")  
     <input type="submit" value="Search" /></p>
 } -->
-<div class = "filter" align="left">
+
 @using (Html.BeginForm()) {
-    <text>Filters: </text>@Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
+    @Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
     @Html.DropDownList("SearchString2", new SelectList(ViewBag.Processor), string.Empty)
-    @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span>
+    <!-- @Html.DropDownList("SearchString2", new SelectList(ViewBag.Processor), string.Empty)
+    @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span> -->
     <input type="submit" value="Filter"/>
 }
-</div>
+
 <br>
 <div class ="container">
     <div class="row">@foreach (var item in Model) {

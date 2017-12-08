@@ -35,7 +35,7 @@ namespace project5_6.Controllers
         public async Task<IActionResult> Index3(string id)
         {
             var webContext = _context.Cart.Where(p => p.user_id.Equals(id));
-            ViewBag.TotalPrice = _context.Cart.Sum(p => p.price);
+            ViewBag.TotalPrice = _context.Cart.Where(c => c.user_id == id).Sum(c => c.price);
             return View(await webContext.ToListAsync());
         }
 
@@ -81,12 +81,12 @@ namespace project5_6.Controllers
 
             return View(id);
         }
-        public async Task<IActionResult> Delete3(int id)
+        public async Task<IActionResult> Delete3(int id, string user_id)
         {
             var cart = await _context.Cart.SingleOrDefaultAsync(m => m.Id == id);
             _context.Cart.Remove(cart);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Laptop");
+            return RedirectToAction("Index3", "Cart", new { id = user_id });
         }
 
         // POST: Cart/Create

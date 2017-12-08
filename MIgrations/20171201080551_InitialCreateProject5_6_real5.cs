@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace project5_6.Migrations
 {
-    public partial class SphereInit : Migration
+    public partial class InitialCreateProject5_6_real5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -28,7 +28,7 @@ namespace project5_6.Controllers
         public async Task<IActionResult> Index2(string id)
         {
             var webContext = _context.Wishlist.Where(p => p.user_id.Equals(id));
-
+            ViewBag.TotalPrice = _context.Wishlist.Where(c => c.user_id == id).Sum(c => c.price);
             return View(await webContext.ToListAsync());
         }
 
@@ -40,7 +40,6 @@ namespace project5_6.Controllers
             {
                 return NotFound();
             }
-
             var wishlist = await _context.Wishlist
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (wishlist == null)
@@ -96,15 +95,15 @@ namespace project5_6.Controllers
             _context.SaveChanges();
 
             //Return a view of whatever now
-            return RedirectToAction("Index", "Laptop");
+            return RedirectToAction("Index3", "Cart", new { id = user_id});
 
         }
-        public async Task<IActionResult> Delete2(int id)
+        public async Task<IActionResult> Delete2(int id, string user_id)
         {
             var wishlist = await _context.Wishlist.SingleOrDefaultAsync(m => m.Id == id);
             _context.Wishlist.Remove(wishlist);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Laptop");
+            return RedirectToAction("Index2", "Wishlist", new { id = user_id });
         }
 
         // POST: Wishlist/Edit/5
