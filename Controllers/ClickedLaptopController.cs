@@ -51,6 +51,28 @@ namespace project5_6.controllers
             return View();
         }
 
+        public ActionResult Create2(int image_id, string brand, string model_name, int order_no, string user_id, int quantity, int price)
+        {
+            Random random = new Random();
+            _context.Cart.Add(new Cart() { product_id = image_id, brand = brand, model_name = model_name, order_no = random.Next(0, 55555), user_id = user_id, quantity = 1, price = price });
+            _context.SaveChanges();
+
+            //Return a view of whatever now
+            return RedirectToAction("Index3", "Cart", new { id = user_id });
+
+        }
+
+        public ActionResult Create3(int image_id, string brand, string model_name, string user_id, int price)
+        {
+            Random random = new Random();
+            _context.Wishlist.Add(new Wishlist() { product_id = image_id, brand = brand, model_name = model_name, user_id = user_id, price = price });
+            _context.SaveChanges();
+
+            //Return a view of whatever now
+            return RedirectToAction("Index2", "Wishlist", new { id = user_id });
+
+        }
+
         // POST: Laptop/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

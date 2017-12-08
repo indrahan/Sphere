@@ -39,8 +39,8 @@
                         &bull; @Html.DisplayFor(modelItem => item.main_storage)GB @Html.DisplayFor(modelItem => item.main_storage_type)<br>
                         &bull; @Html.DisplayFor(modelItem => item.graphic_card)<br><br>
                         &euro; @Html.DisplayFor(modelItem => item.price) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        @Html.ActionLink("Add to cart","Create2",new {image_id = @item.Id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
-                    |   @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.Id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
+                        @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
+                    |   @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
                     		<br>
                             <br>
                             @if (User.IsInRole("Administrator")){

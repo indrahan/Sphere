@@ -1,5 +1,8 @@
 @model IEnumerable<project5_6.Models.Laptop>
 
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 @{ViewData["Title"] = "Clicked";}
 
  <div class="container-fluid"> @foreach (var item in Model) {		
@@ -10,6 +13,8 @@
 			<img src="@Url.Content("~/images/" + item.Id + ".jpg")" class="img-responsive">  
 			<h4><strong>Product description:</strong></h4>
 			<p>@Html.DisplayFor(modelItem => item.description)</p>
+			<p> @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
+    	 		| @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})</p>
 			<br>
 			<table class="table table-bordered">
 				<tbody>
@@ -29,6 +34,7 @@
 			</div>
 		</div>
 		</div>
+
 		}
 	</div>
 </div>
