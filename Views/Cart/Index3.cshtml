@@ -1,5 +1,8 @@
 @model IEnumerable<project5_6.Models.Cart>
 
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -22,7 +25,7 @@
                 <td>@item.brand | @item.model_name</td>
                 <td>@item.quantity</td>
                 <td>&euro; @item.price</td>
-                <td>@Html.ActionLink("Delete product","Delete3",new {id = @item.Id})</td>
+                <td>@Html.ActionLink("Delete product","Delete3",new {id = @item.Id, user_id = @UserManager.GetUserId(User)})</td>
             </tr>
 			}
 			

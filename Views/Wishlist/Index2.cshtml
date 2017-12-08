@@ -7,22 +7,33 @@
     ViewData["Title"] = "Index";
 }
 
-<h2><center>Your wish list</center></h2>
-<hr>
-
 <div class="container">
-	<div class="row">
-        <div id="catlist">
-    <dl>@foreach (var item in Model){
-		<dt><img src="@Url.Content("~/images/" + item.product_id + ".jpg")" style="width:140px;height:140px" class="img-responsive"><div class="col-sm-15">
-		<strong>@item.brand</strong> | @item.model_name</dt>
-		<dd>
-			<p>The description of whatever the heading is about goes here the description of whatever the heading is about goes here.</p>
-		</dd>
-		@Html.ActionLink("Add to cart ","Create2",new {image_id = @item.Id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
-		@Html.ActionLink("| Remove from list","Delete2",new {id = @item.Id})
-		}
-	</dl>
-</div>	
-	</div>
+<br>
+	<h1><center>Wishlist</center></h1><hr>
+	<table class="table table-striped table-hover table-bordered">
+        <tbody>
+            <tr>
+				<th>Product</th>
+                <th>Brand | Model Name</th>
+                <th>Unit Price</th>
+                <th>Delete Item</th>
+            </tr>
+			@foreach(var item in Model){
+            <tr>
+                <td><img src="@Url.Content("~/images/" + item.product_id + ".jpg")" style="width:100px;height:100px" class="img-responsive"></td>
+                <td>@item.brand | @item.model_name</td>
+                <td>&euro; @item.price</td>
+                <td>@Html.ActionLink("Delete product","Delete2",new {id = @item.Id, user_id = @UserManager.GetUserId(User)}) | @Html.ActionLink("Add to cart ","Create2",new {image_id = @item.Id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})</td>
+            </tr>
+			}
+			
+            <tr>
+                <th colspan="3"><span class="pull-right">Total Price</span></th>
+                <th>&euro; @ViewBag.TotalPrice</th>
+            </tr>
+            <tr>
+                <td><a asp-area="" asp-controller="Laptop" asp-action="Index" class="btn btn-primary">Continue Shopping</a></td>
+            </tr>
+        </tbody>
+    </table>           
 </div>

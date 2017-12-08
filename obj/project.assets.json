@@ -13156,23 +13156,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\I. Han\\.nuget\\packages\\": {},
+    "C:\\Users\\Gregory\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\project5_6.csproj",
+      "projectUniqueName": "C:\\Users\\Gregory\\Documents\\HR\\Project_5_6\\project5_6_real2\\project5_6.csproj",
       "projectName": "project5_6",
-      "projectPath": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\project5_6.csproj",
-      "packagesPath": "C:\\Users\\I. Han\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\obj\\",
+      "projectPath": "C:\\Users\\Gregory\\Documents\\HR\\Project_5_6\\project5_6_real2\\project5_6.csproj",
+      "packagesPath": "C:\\Users\\Gregory\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gregory\\Documents\\HR\\Project_5_6\\project5_6_real2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\I. Han\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gregory\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

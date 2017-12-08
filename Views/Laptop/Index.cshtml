@@ -14,9 +14,10 @@
 } -->
 
 @using (Html.BeginForm()) {
-    <text>Filters: </text>@Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
+    @Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
     @Html.DropDownList("SearchString2", new SelectList(ViewBag.Processor), string.Empty)
-    @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span>
+    <!-- @Html.DropDownList("SearchString2", new SelectList(ViewBag.Processor), string.Empty)
+    @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span> -->
     <input type="submit" value="Filter"/>
 }
 

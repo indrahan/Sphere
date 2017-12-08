@@ -14,13 +14,13 @@ namespace project5_6.Controllers
 {
     public class AdminController : Controller
     {
+
         private readonly WebContext _context;
         public AdminController(WebContext context)
         {
             _context = context;
 
         }
-
         [Authorize(Roles = "Administrator")]
         public IActionResult Index()
         {
@@ -69,9 +69,6 @@ namespace project5_6.Controllers
             // Don't rely on or trust the FileName property without validation.
             return RedirectToAction("Index", "Admin");
         }
-
-
-
 
         public IActionResult Error()
         {

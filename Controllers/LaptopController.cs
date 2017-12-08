@@ -21,7 +21,7 @@ namespace project5_6.Controllers
         }
         
         // GET: Laptop
-        public async Task<IActionResult> Index(string searchString, string searchString2)
+        public async Task<IActionResult> Index(string searchString)
         {
             ViewBag.laptop = (from x in _context.Laptop
                               select x.brand).Distinct();
@@ -29,6 +29,7 @@ namespace project5_6.Controllers
                                  select x.processor).Distinct();
 
             var webContext2 = _context.Laptop.Where(p => p.brand.Contains(searchString));
+            var webContext3 = _context.Laptop.Where(p => p.processor.Contains(searchString));
             if (searchString == null)
             {
                 return View(await _context.Laptop.ToListAsync());
@@ -93,7 +94,7 @@ namespace project5_6.Controllers
             _context.SaveChanges();
 
             //Return a view of whatever now
-            return RedirectToAction("Index", "Laptop");
+            return RedirectToAction("Index3", "Cart", new { id = user_id });
 
         }
 
@@ -104,7 +105,7 @@ namespace project5_6.Controllers
             _context.SaveChanges();
 
             //Return a view of whatever now
-            return RedirectToAction("Index", "Laptop");
+            return RedirectToAction("Index2", "Wishlist", new { id = user_id });
 
         }
 
