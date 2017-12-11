@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 @using Microsoft.AspNetCore.Identity
 
 @inject SignInManager<ApplicationUser> SignInManager
@@ -36,26 +35,17 @@
                     {
                     <li><a asp-area="" asp-controller="Admin" asp-action="Index">Home</a></li>
                     }
-                    
                     else 
                     {
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     }
-                   
-
                     <li><a asp-area="" asp-controller="Laptop" asp-action="Index">Show all products</a></li>
-                    
-                     @if (User.IsInRole("Registered"))
-                     {
+                      @if (!User.IsInRole("Administrator"))
+                      {
                     <li><a asp-area="" asp-controller="Cart" asp-action="Index3" asp-route-id="@UserManager.GetUserId(User)">Cart</a></li>
                     <li><a asp-area="" asp-controller="Wishlist" asp-action="Index2" asp-route-id="@UserManager.GetUserId(User)">Wish List</a></li>
-                    }
-                    <!-- @if (User.IsInRole("Administrator")){
-                    <li><a asp-area="" asp-controller="Cart" asp-action="" asp-route-id="@UserManager.GetUserId(User)" >Cart</a></li>} -->
-                   
-                    <!-- <li>@using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}</li> -->
-                    <!-- <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li> -->
+                      }
+
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
