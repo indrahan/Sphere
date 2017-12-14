@@ -11,19 +11,15 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+   <h1><center>Welcome to Sphere</center></h1>
+
     <environment include="Development">
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
 </head>
 
 <body>
-<br>
-
-<br>
-<br>
-
-
-<br>
 <div class ="container-fluid">
     <div class="row">
         <div class="col-lg-9">
@@ -53,6 +49,9 @@
                 </div>
             </div>
         </div>
+        
+        @using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}        
+        <hr>
 @foreach (var item in Model) {
     <div class="col-md-4">
         <div class="product-item">
