@@ -3,33 +3,61 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sphere</title>
 @{
     ViewData["Title"] = "Index";
 }
-<br>
-<!-- @using (Html.BeginForm())
-{
-    <p>Find by brand: @Html.TextBox("SearchString")  
-    <input type="submit" value="Search" /></p>
-} -->
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+</head>
 
-@using (Html.BeginForm()) {
-    @Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
-    @Html.DropDownList("SearchString2", new SelectList(ViewBag.Processor), string.Empty)
-    <!-- @Html.DropDownList("SearchString2", new SelectList(ViewBag.Processor), string.Empty)
-    @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span> -->
-    <input type="submit" value="Filter"/>
-}
+<body>
+<br>
 
 <br>
-<div class ="container">
-    <div class="row">@foreach (var item in Model) {
-<div class="col-sm-4">
-    <div class="product-item">
-        <div class="pi-img-wrapper">
+<br>
+
+
+<br>
+<div class ="container-fluid">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="affix" style="top:1;left:0;cursor: pointer;">
+                <div class="well">
+                    <form class="form-horizontal">
+                        <div class="form-group" >
+                            @using (Html.BeginForm()) {
+                            <h5>Brand</h5>
+                            @Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
+                            <br>
+                            
+                            <br>
+                            <h5>processor</h5>
+                            @Html.DropDownList("SearchString", new SelectList(ViewBag.processor), string.Empty)
+                            <br>
+                            <br>
+                            @using (Html.BeginForm()) {
+                            @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span>
+                            }
+                            <br>
+                            <br>
+                            <input type="submit" value="Filter"/>
+                            }
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="thumbnail">
-                <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id"><img src="@Url.Content("~/images/" + item.image_id + ".jpg")" style="width:300;height:240px" class="img-responsive"></a>
+@foreach (var item in Model) {
+    <div class="col-md-4">
+        <div class="product-item">
+            <div class="thumbnail">
+                <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id"><img src="@Url.Content("~/images/" + item.image_id + ".jpg")" style="width:280;height:240px" class="img-responsive"></a>
                 <br>
                 <table class="table">
                     <tbody>
@@ -47,8 +75,9 @@
                             <li><a asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id">Edit product</a></li>}
                     </tbody>
 				</table>
-            </div>    
+            </div>
+        </div>
+    </div> }
     </div>
-</div> }
 </div>
-</div>
+</body>
