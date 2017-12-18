@@ -2,42 +2,68 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sphere</title>
 @{
     ViewData["Title"] = "Index";
 }
-<br>
-<!-- @using (Html.BeginForm())
-{
-    <p>Find by brand: @Html.TextBox("SearchString")  
-    <input type="submit" value="Search" /></p>
-} -->
+   <h1><center>Welcome to Sphere</center></h1>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+</head>
+<body>
 
-@using (Html.BeginForm()) {
-    @Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
-    @Html.DropDownList("SearchString2", new SelectList(ViewBag.Processor), string.Empty)
-    <!-- @Html.DropDownList("SearchString2", new SelectList(ViewBag.Processor), string.Empty)
-    @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span> -->
-    <input type="submit" value="Filter"/>
-}
-
-<br>
-<div class ="container">
-    <div class="row">@foreach (var item in Model) {
-<div class="col-sm-4">
-    <div class="product-item">
-        <div class="pi-img-wrapper">
-        </div>
-        <div class="thumbnail">
-                <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id"><img src="@Url.Content("~/images/" + item.image_id + ".jpg")" style="width:300;height:240px" class="img-responsive"></a>
+<div class ="container-fluid">
+    <div class="row"></div>
+        <div class="col-lg-9">
+            <div class="affix" style="left:50px;">
+                    <form class="form-horizontal">
+                        <div class="form-group" >
+                            @using (Html.BeginForm()) {
+                            <h5>Brand</h5>
+                            @Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
+                            <br>
+                            <h5>processor</h5>
+                            @Html.DropDownList("SearchString", new SelectList(ViewBag.processor), string.Empty)
+                            <br>
+                            <br>
+                            @using (Html.BeginForm()) 
+                            {
+                            @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span>
+                            }
+                            <br>
+                            <br>
+                            <input type="submit" value="Filter"/>
+                            }
+                        </div>
+                    </form>
+                </div>
+            </div>
+     
+        
+@using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}        
+<hr>
+@foreach (var item in Model) {
+    
+    <div class="col-md-4">
+        <div class="product-item">
+            <div class="thumbnail">
+                <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id"><img src="@Url.Content("~/images/" + item.image_id + ".jpg")" style="width:280;height:240px" class="img-responsive"></a>
                 <br>
                 <table class="table">
                     <tbody>
                     <tr class="techSpecRow"><td class="techSpecTD1"></td><td class="techSpecTD2">
-                        &bull; @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)<br>
+                        &bull; @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)
+                        
+                        <br>
                         &bull; @Html.DisplayFor(modelItem => item.processor)<br>
                         &bull; @Html.DisplayFor(modelItem => item.main_storage)GB @Html.DisplayFor(modelItem => item.main_storage_type)<br>
                         &bull; @Html.DisplayFor(modelItem => item.graphic_card)<br><br>
+                        
                         &euro; @Html.DisplayFor(modelItem => item.price) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
                     |   @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
@@ -47,8 +73,9 @@
                             <li><a asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id">Edit product</a></li>}
                     </tbody>
 				</table>
-            </div>    
+            </div>
+        </div>
+    </div> }
     </div>
-</div> }
 </div>
-</div>
+</body>

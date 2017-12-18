@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project5_6.Data;
 using project5_6.Models;
+using ExtensionMethods;
+using restserver.Paginator;
 
 
 namespace project5_6.Controllers
@@ -65,7 +67,12 @@ namespace project5_6.Controllers
 
             return View(laptop);
         }
-
+        // [HttpGet("GetLaptopsPaged/{page_index}/{page_index}")]
+        // public IActionResult GetAllLaptops(int page_index, int page_size){
+        //     var res = _context.Laptop.GetPage<Laptop>(page_index, page_size, a => a.Id);
+        //     if (res==null) return NotFound();
+        //     return Ok(res);
+        // }
         // GET: Laptop/Create
         public IActionResult Create()
         {

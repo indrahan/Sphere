@@ -8,6 +8,10 @@
 {
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
+             @if (User.IsInRole("Administrator"))
+                    {
+                    <li><a asp-area="" asp-controller="Admin" asp-action="Index">Manage products</a></li>
+                    }
             <li>
                 <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)</a>
             </li>
@@ -24,3 +28,4 @@ else
         <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
     </ul>
 }
+

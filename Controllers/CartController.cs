@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project5_6.Data;
 using project5_6.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace project5_6.Controllers
 {
@@ -20,6 +21,7 @@ namespace project5_6.Controllers
         }
 
         // GET: Cart
+        [Authorize(Roles = "Registered")]
         public async Task<IActionResult> Index(string id)
         {
             var webContext = _context.Cart.Where(p => p.user_id.Equals(id));
