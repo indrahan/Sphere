@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project5_6.Data;
 using project5_6.Models;
-using ExtensionMethods;
-using restserver.Paginator;
 
 
 namespace project5_6.Controllers
@@ -21,25 +19,63 @@ namespace project5_6.Controllers
         {
             _context = context;
         }
-        
+
         // GET: Laptop
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string processor, string laptop, string recommended_purpose, string screen_size, string ram, string main_storage, bool hdmi)
         {
-            ViewBag.laptop = (from x in _context.Laptop
-                              select x.brand).Distinct();
-            ViewBag.processor = (from x in _context.Laptop
-                                 select x.processor).Distinct();
+            ViewBag.laptop = (from x in _context.Laptop select x.brand).Distinct();
+            ViewBag.processor = (from x in _context.Laptop select x.processor).Distinct();
+            ViewBag.screen_size = (from x in _context.Laptop select x.screen_size).Distinct();
+            ViewBag.recommended_purpose = (from x in _context.Laptop select x.recommended_purpose).Distinct();
+            ViewBag.ram = (from x in _context.Laptop select x.ram).Distinct();
+            ViewBag.main_storage = (from x in _context.Laptop select x.main_storage).Distinct();
 
-            var webContext2 = _context.Laptop.Where(p => p.brand.Contains(searchString));
-            var webContext3 = _context.Laptop.Where(p => p.processor.Contains(searchString));
-            if (searchString == null)
+            // laptop == brand voor nu i know fucked up
+            var webContext2 = _context.Laptop.Where(p => p.processor.Contains(processor));
+            var webContext3 = _context.Laptop.Where(p => p.brand.Contains(laptop));
+            var webContext4 = webContext3.Where(p => p.processor.Contains(processor));
+            var webContext5 = _context.Laptop.Where(p => p.recommended_purpose.Contains(recommended_purpose));
+            var webContext6 = _context.Laptop.Where(p => p.screen_size.Contains(screen_size));
+            var webContext7 = _context.Laptop.Where(p => p.ram.Contains(ram));
+            var webContext8 = _context.Laptop.Where(p => p.main_storage.Contains(main_storage));
+            var webContext9 = _context.Laptop.Where(p => p.hdmi.Equals(hdmi));
+
+
+            if (processor != null && laptop == null)
             {
-                return View(await _context.Laptop.ToListAsync());
-
+                return View(await webContext2.ToListAsync());
+            }
+            if (processor == null && laptop != null)
+            {
+                return View(await webContext3.ToListAsync());
+            }
+            if (processor != null && laptop != null)
+            {
+                return View(await webContext4.ToListAsync());
+            }
+            if (processor == null && laptop == null && recommended_purpose != null)
+            {
+                return View(await webContext5.ToListAsync());
+            }
+            if (processor == null && laptop == null && recommended_purpose == null && screen_size != null)
+            {
+                return View(await webContext6.ToListAsync());
+            }
+            if (processor == null && laptop == null && recommended_purpose == null && screen_size == null && ram != null)
+            {
+                return View(await webContext7.ToListAsync());
+            }
+            if (processor == null && laptop == null && recommended_purpose == null && screen_size == null && ram == null && main_storage != null)
+            {
+                return View(await webContext8.ToListAsync());
+            }
+            if (processor == null && laptop == null && recommended_purpose == null && screen_size == null && ram == null && main_storage == null && hdmi == true)
+            {
+                return View(await webContext9.ToListAsync());
             }
             else
             {
-                return View(await webContext2.ToListAsync());
+                return View(await _context.Laptop.ToListAsync());
             }
         }
 
@@ -67,12 +103,13 @@ namespace project5_6.Controllers
 
             return View(laptop);
         }
-        // [HttpGet("GetLaptopsPaged/{page_index}/{page_index}")]
-        // public IActionResult GetAllLaptops(int page_index, int page_size){
-        //     var res = _context.Laptop.GetPage<Laptop>(page_index, page_size, a => a.Id);
-        //     if (res==null) return NotFound();
-        //     return Ok(res);
-        // }
+
+        public async Task<IActionResult> IndexAdmin()
+        {
+            return View(await _context.Laptop.ToListAsync());
+        }
+
+
         // GET: Laptop/Create
         public IActionResult Create()
         {

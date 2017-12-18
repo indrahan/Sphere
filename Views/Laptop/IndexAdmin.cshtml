@@ -1,0 +1,167 @@
+@model IEnumerable<project5_6.Models.Laptop>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_added)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.image_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.brand)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.model_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.screen_size)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.panel_type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.keyboard_layout)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.operating_system)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.processor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.graphic_card)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ram)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.main_storage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.main_storage_type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.extra_storage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.webcam)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hdmi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.touchscreen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.dvd_drive)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.staff_picked)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.recommended_purpose)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_added)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.screen_size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.panel_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.keyboard_layout)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.operating_system)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.processor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.graphic_card)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.main_storage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.main_storage_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.extra_storage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.webcam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hdmi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.touchscreen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dvd_drive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.staff_picked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recommended_purpose)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

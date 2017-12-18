@@ -16,14 +16,14 @@ namespace project5_6.Models
         public string model_name { get; set; }
         public string description { get; set; }
         public float price { get; set; }
-        public float screen_size { get; set; }  
+        public string screen_size { get; set; }  
         public string panel_type { get; set; }  
         public string keyboard_layout { get; set; } 
         public string operating_system { get; set; }
         public string processor { get; set; }
         public string graphic_card { get; set; }
-        public int ram { get; set; }
-        public int main_storage { get; set; }
+        public string ram { get; set; }
+        public string main_storage { get; set; }
         public string main_storage_type { get; set; }
         public bool extra_storage { get; set; }
         public bool webcam { get; set; }

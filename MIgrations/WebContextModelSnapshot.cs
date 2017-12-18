@@ -240,7 +240,7 @@ namespace project5_6.Migrations
 
                     b.Property<string>("keyboard_layout");
 
-                    b.Property<int>("main_storage");
+                    b.Property<string>("main_storage");
 
                     b.Property<string>("main_storage_type");
 
@@ -254,11 +254,11 @@ namespace project5_6.Migrations
 
                     b.Property<string>("processor");
 
-                    b.Property<int>("ram");
+                    b.Property<string>("ram");
 
                     b.Property<string>("recommended_purpose");
 
-                    b.Property<float>("screen_size");
+                    b.Property<string>("screen_size");
 
                     b.Property<bool>("staff_picked");
 

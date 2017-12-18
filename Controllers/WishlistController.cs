@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using project5_6.Data;
 using project5_6.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace project5_6.Controllers
 {
@@ -20,6 +22,7 @@ namespace project5_6.Controllers
         }
 
         // GET: Wishlist
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Wishlist.ToListAsync());
@@ -95,7 +98,7 @@ namespace project5_6.Controllers
             _context.SaveChanges();
 
             //Return a view of whatever now
-            return RedirectToAction("Index3", "Cart", new { id = user_id});
+            return RedirectToAction("Index3", "Cart", new { id = user_id });
 
         }
         public async Task<IActionResult> Delete2(int id, string user_id)
