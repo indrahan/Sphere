@@ -2,7 +2,6 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,33 +10,29 @@
 @{
     ViewData["Title"] = "Index";
 }
-
    <h1><center>Welcome to Sphere</center></h1>
-
     <environment include="Development">
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
 </head>
-
 <body>
+
 <div class ="container-fluid">
-    <div class="row">
+    <div class="row"></div>
         <div class="col-lg-9">
-            <div class="affix" style="top:1;left:0;cursor: pointer;">
-                <div class="well">
+            <div class="affix" style="left:50px;">
                     <form class="form-horizontal">
                         <div class="form-group" >
                             @using (Html.BeginForm()) {
                             <h5>Brand</h5>
                             @Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
                             <br>
-                            
-                            <br>
                             <h5>processor</h5>
                             @Html.DropDownList("SearchString", new SelectList(ViewBag.processor), string.Empty)
                             <br>
                             <br>
-                            @using (Html.BeginForm()) {
+                            @using (Html.BeginForm()) 
+                            {
                             @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span>
                             }
                             <br>
@@ -48,11 +43,12 @@
                     </form>
                 </div>
             </div>
-        </div>
+     
         
-        @using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}        
-        <hr>
+@using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}        
+<hr>
 @foreach (var item in Model) {
+    
     <div class="col-md-4">
         <div class="product-item">
             <div class="thumbnail">
@@ -61,7 +57,9 @@
                 <table class="table">
                     <tbody>
                     <tr class="techSpecRow"><td class="techSpecTD1"></td><td class="techSpecTD2">
-                        &bull; @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)<br>
+                        &bull; @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)
+                        
+                        <br>
                         &bull; @Html.DisplayFor(modelItem => item.processor)<br>
                         &bull; @Html.DisplayFor(modelItem => item.main_storage)GB @Html.DisplayFor(modelItem => item.main_storage_type)<br>
                         &bull; @Html.DisplayFor(modelItem => item.graphic_card)<br><br>
