@@ -55,7 +55,33 @@ namespace project5_6.Controllers
                         {
                             var line = sr.ReadLine();
                             var col = line.Split(',');
-                            var laptop = new Laptop() { date_added = DateTime.Parse(col[0]), image_id = int.Parse(col[1]), category = col[2], brand = col[3], model_name = col[4], price = float.Parse(col[5]), screen_size = int.Parse(col[6]), panel_type = col[7], keyboard_layout = col[8], operating_system = col[9], processor = col[10], graphic_card = col[11], ram = int.Parse(col[12]), main_storage = int.Parse(col[13]), main_storage_type = col[14], extra_storage = Boolean.Parse(col[15]), webcam = Boolean.Parse(col[16]), hdmi = Boolean.Parse(col[17]), touchscreen = Boolean.Parse(col[18]), dvd_drive = Boolean.Parse(col[19]), staff_picked = Boolean.Parse(col[20]), recommended_purpose = col[21], description = col[22] };
+                            var laptop = new Laptop()
+                            {
+                                product_id = int.Parse(col[0]),
+                                date_added = DateTime.Parse(col[1]),
+                                image_id = int.Parse(col[2]),
+                                category = col[3],
+                                brand = col[4],
+                                model_name = col[5],
+                                price = float.Parse(col[6]),
+                                screen_size = (col[7]),
+                                panel_type = col[8],
+                                operating_system = col[9],
+                                processor = col[10],
+                                graphic_card = col[11],
+                                ram = col[12],
+                                main_storage = col[13],
+                                extra_storage = Boolean.Parse(col[14]),
+                                webcam = Boolean.Parse(col[15]),
+                                hdmi = Boolean.Parse(col[16]),
+                                touchscreen = Boolean.Parse(col[17]),
+                                dvd_drive = Boolean.Parse(col[18]),
+                                staff_picked = Boolean.Parse(col[19]),
+                                recommended_purpose = col[20],
+                                supply = int.Parse(col[21]),
+                                description = col[22]
+                            };
+
                             _context.Laptop.Add(laptop);
                         }
 

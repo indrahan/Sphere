@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace project5_6.Migrations
 {
-    public partial class InitialCreateProject5_6_real5 : Migration
+    public partial class SphereInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -96,18 +96,18 @@ namespace project5_6.Migrations
                     graphic_card = table.Column<string>(type: "text", nullable: true),
                     hdmi = table.Column<bool>(type: "bool", nullable: false),
                     image_id = table.Column<int>(type: "int4", nullable: false),
-                    keyboard_layout = table.Column<string>(type: "text", nullable: true),
-                    main_storage = table.Column<int>(type: "int4", nullable: false),
-                    main_storage_type = table.Column<string>(type: "text", nullable: true),
+                    main_storage = table.Column<string>(type: "text", nullable: true),
                     model_name = table.Column<string>(type: "text", nullable: true),
                     operating_system = table.Column<string>(type: "text", nullable: true),
                     panel_type = table.Column<string>(type: "text", nullable: true),
                     price = table.Column<float>(type: "float4", nullable: false),
                     processor = table.Column<string>(type: "text", nullable: true),
-                    ram = table.Column<int>(type: "int4", nullable: false),
+                    product_id = table.Column<int>(type: "int4", nullable: false),
+                    ram = table.Column<string>(type: "text", nullable: true),
                     recommended_purpose = table.Column<string>(type: "text", nullable: true),
-                    screen_size = table.Column<float>(type: "float4", nullable: false),
+                    screen_size = table.Column<string>(type: "text", nullable: true),
                     staff_picked = table.Column<bool>(type: "bool", nullable: false),
+                    supply = table.Column<int>(type: "int4", nullable: false),
                     touchscreen = table.Column<bool>(type: "bool", nullable: false),
                     webcam = table.Column<bool>(type: "bool", nullable: false)
                 },

@@ -10,7 +10,7 @@
 		<div class="col-sm-7">
 			<br>
 			<div class="col-sm-12">
-			<img src="@Url.Content("~/images/" + item.Id + ".jpg")" class="img-responsive">  
+			<img src="@Url.Content("~/images/" + item.image_id + ".jpg")" class="img-responsive">  
 			<h4><strong>Product description:</strong></h4>
 			<p>@Html.DisplayFor(modelItem => item.description)</p>
 			<p> @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
@@ -21,9 +21,8 @@
 				<tr class="techSpecRow"><th colspan="2">More specifications</th></tr>
 				<tr class="techSpecRow"><td class="techSpecTD1">Category: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.category)</td></tr>
 				<tr class="techSpecRow"><td class="techSpecTD1">Brand:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.brand)</td></tr>
-                <tr class="techSpecRow"><td class="techSpecTD1">Main Storage: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.main_storage)@Html.DisplayFor(modelItem => item.main_storage_type)</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Main Storage: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.main_storage)</td></tr>
 				<tr class="techSpecRow"><td class="techSpecTD1">Operating System:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.operating_system)</td></tr>
-                <tr class="techSpecRow"><td class="techSpecTD1">Keyboard Layout: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.keyboard_layout)</td></tr>
 				<tr class="techSpecRow"><td class="techSpecTD1">Screen Panel Type:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.panel_type)</td></tr>
                 <tr class="techSpecRow"><td class="techSpecTD1">Processor: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.processor)</td></tr>
 				<tr class="techSpecRow"><td class="techSpecTD1">RAM:</td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.ram) GB</td></tr>

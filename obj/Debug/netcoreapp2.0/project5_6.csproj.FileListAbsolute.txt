@@ -23,3 +23,8 @@ C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.Assem
 C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.AssemblyInfo.cs
 C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.dll
 C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.pdb
+C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.deps.json
+C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.runtimeconfig.json
+C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.runtimeconfig.dev.json
+C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.dll
+C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.pdb
