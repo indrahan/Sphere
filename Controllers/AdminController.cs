@@ -41,10 +41,10 @@ namespace project5_6.Controllers
             {
                 if (formFile.Length > 0)
                 {
-                    System.Console.WriteLine("File : " + formFile.FileName);
+                    
                     if (formFile.FileName.EndsWith(".csv"))
                     {
-                        System.Console.WriteLine("HUE");
+                        
 
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
