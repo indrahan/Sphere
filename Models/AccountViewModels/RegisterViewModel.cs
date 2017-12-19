@@ -8,7 +8,6 @@ namespace project5_6.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
-
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

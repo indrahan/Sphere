@@ -34,5 +34,8 @@ namespace project5_6.Data
         public DbSet<project5_6.Models.Cart> Cart { get; set; }
 
         public DbSet<project5_6.Models.Wishlist> Wishlist { get; set; }
+
+        public DbSet<project5_6.Models.ApplicationUser> ApplicationUser { get; set; }
+
     }
 }

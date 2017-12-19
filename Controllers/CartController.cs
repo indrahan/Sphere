@@ -21,13 +21,13 @@ namespace project5_6.Controllers
         }
 
         // GET: Cart
-        [Authorize(Roles = "Registered")]
         public async Task<IActionResult> Index(string id)
         {
             var webContext = _context.Cart.Where(p => p.user_id.Equals(id));
 
             return View(await webContext.ToListAsync());
         }
+        [Authorize(Roles = "Administrator")]
 
         public async Task<IActionResult> Index2()
         {

@@ -25,16 +25,23 @@
                         <div class="form-group" >
                             @using (Html.BeginForm()) {
                             <h5>Brand</h5>
-                            @Html.DropDownList("SearchString", new SelectList(ViewBag.Laptop), string.Empty)
+                            @Html.DropDownList("laptop", new SelectList(ViewBag.Laptop), string.Empty)
                             <br>
-                            <h5>processor</h5>
-                            @Html.DropDownList("SearchString", new SelectList(ViewBag.processor), string.Empty)
+                            <h5>Processor</h5>
+                            @Html.DropDownList("processor", new SelectList(ViewBag.processor), string.Empty)
                             <br>
+							<h5>Screen Size</h5>
+                            @Html.DropDownList("screen_size", new SelectList(ViewBag.screen_size), string.Empty)
                             <br>
-                            @using (Html.BeginForm()) 
-                            {
-                            @Html.RadioButton("hdmi", "hdmi", "true")<span>HDMI</span>
-                            }
+                            <h5>Purpose</h5>
+                            @Html.DropDownList("recommended_purpose", new SelectList(ViewBag.recommended_purpose), string.Empty)
+                            <br>
+							<h5>RAM</h5>
+                            @Html.DropDownList("ram", new SelectList(ViewBag.ram), string.Empty)
+                            <br>
+                            <h5>Storage Size</h5>
+                            @Html.DropDownList("main_storage", new SelectList(ViewBag.main_storage), string.Empty)
+                            <br>
                             <br>
                             <br>
                             <input type="submit" value="Filter"/>
@@ -64,7 +71,7 @@
                         &bull; @Html.DisplayFor(modelItem => item.main_storage)GB @Html.DisplayFor(modelItem => item.main_storage_type)<br>
                         &bull; @Html.DisplayFor(modelItem => item.graphic_card)<br><br>
                         
-                        &euro; @Html.DisplayFor(modelItem => item.price) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &euro; @Html.DisplayFor(modelItem => item.price) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
                     |   @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
                     		<br>
