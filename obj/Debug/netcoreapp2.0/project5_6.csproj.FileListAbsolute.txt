@@ -18,3 +18,8 @@ C:\Users\Gregory\Documents\HR\Project_5_6\project5_6_real2\obj\Debug\netcoreapp2
 C:\Users\Gregory\Documents\HR\Project_5_6\project5_6_real2\obj\Debug\netcoreapp2.0\project5_6.AssemblyInfo.cs
 C:\Users\Gregory\Documents\HR\Project_5_6\project5_6_real2\obj\Debug\netcoreapp2.0\project5_6.dll
 C:\Users\Gregory\Documents\HR\Project_5_6\project5_6_real2\obj\Debug\netcoreapp2.0\project5_6.pdb
+C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.csproj.CoreCompileInputs.cache
+C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.AssemblyInfoInputs.cache
+C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.AssemblyInfo.cs
+C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.dll
+C:\Users\I. Han\Documents\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.pdb
