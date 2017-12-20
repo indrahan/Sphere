@@ -103,7 +103,19 @@ namespace project5_6.Controllers
 
         public IActionResult Statistics()
         {
-            ViewBag.january = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 02, 01) && x.date_added <= new DateTime(2017, 04, 1) select x.supply).Sum();
+            ViewBag.january = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 01, 01) && x.date_added < new DateTime(2017, 02, 01) select x.supply).Sum();
+            ViewBag.february = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 02, 01) && x.date_added < new DateTime(2017, 03, 01) select x.supply).Sum();
+            ViewBag.march = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 03, 01) && x.date_added < new DateTime(2017, 04, 01) select x.supply).Sum();
+            ViewBag.april = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 04, 01) && x.date_added < new DateTime(2017, 05, 01) select x.supply).Sum();
+            ViewBag.may = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 05, 01) && x.date_added < new DateTime(2017, 06, 01) select x.supply).Sum();
+            ViewBag.june = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 06, 01) && x.date_added < new DateTime(2017, 07, 01) select x.supply).Sum();
+            ViewBag.july = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 07, 01) && x.date_added < new DateTime(2017, 08, 01) select x.supply).Sum();
+            ViewBag.august = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 08, 01) && x.date_added < new DateTime(2017, 09, 01) select x.supply).Sum();
+            ViewBag.september = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 09, 01) && x.date_added < new DateTime(2017, 10, 01) select x.supply).Sum();
+            ViewBag.october = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 10, 01) && x.date_added < new DateTime(2017, 11, 01) select x.supply).Sum();
+            ViewBag.november = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 11, 01) && x.date_added < new DateTime(2017, 12, 01) select x.supply).Sum();
+            ViewBag.december = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 12, 01) && x.date_added < new DateTime(2018, 01, 01) select x.supply).Sum();
+
             return View();
         }
     }
