@@ -13,6 +13,7 @@
 			<img src="@Url.Content("~/images/" + item.image_id + ".jpg")" class="img-responsive">  
 			<h4><strong>Product description:</strong></h4>
 			<p>@Html.DisplayFor(modelItem => item.description)</p>
+			<p>€ @Html.DisplayFor(modelItem => item.price)</p>
 			<p> @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
     	 		| @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})</p>
 			<br>
