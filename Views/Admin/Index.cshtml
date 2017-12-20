@@ -64,3 +64,26 @@
 
 
 <td colspan="4"><a asp-area="" asp-controller="Admin" asp-action="StatisticsPage" class="btn btn-success">Go to statistics page</a></td>
+@(Html.ShieldChart()
+    .Name("chart")
+    .Tooltip(tooltip => tooltip.AxisMarkers(axisMarkers => axisMarkers
+        .Enabled(true)
+        .Mode(ShieldUI.AspNetCore.Mvc.Chart.TooltipAxisMarkerMode.XY)
+        .Width(1)
+        .ZIndex(3)))
+    .Theme("light")
+    .PrimaryHeader(header => header.Text("Total products"))
+    .Export(false)
+    .AxisX(axis => axis.CategoricalValues(
+        "Jan", "Feb", "Mrt", "Apr", "Mei", 
+        "Jun", "Jul", "Aug", "Sep", "Okt", 
+        "Nov", "Dec"
+    ))
+    .DataSeries(series =>
+        series.Area()
+              .Name("Budget in Thousands")
+              .Data(new object[] { 
+                  100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650
+              })
+    )
+)

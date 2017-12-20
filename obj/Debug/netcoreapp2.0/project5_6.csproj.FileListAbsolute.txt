@@ -28,3 +28,13 @@ C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.runti
 C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.runtimeconfig.dev.json
 C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.dll
 C:\Users\I. Han\Documents\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.pdb
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.deps.json
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.runtimeconfig.json
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.runtimeconfig.dev.json
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.dll
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\bin\Debug\netcoreapp2.0\project5_6.pdb
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.csproj.CoreCompileInputs.cache
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.AssemblyInfoInputs.cache
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.AssemblyInfo.cs
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.dll
+C:\Users\stijn\OneDrive\Documenten\GitHub\Sphere\obj\Debug\netcoreapp2.0\project5_6.pdb

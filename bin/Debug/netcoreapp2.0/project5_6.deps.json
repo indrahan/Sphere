@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "092986a50a1c83efbcda3673a597371ba77780a5"
+    "signature": "38d00cf15851e9d478d64665a2b1edc6c245f72a"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,8 @@
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.0",
           "Newtonsoft.Json": "10.0.3",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.0"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.0",
+          "ShieldUI.AspNetCore.Mvc": "1.7.31"
         },
         "runtime": {
           "project5_6.dll": {}
@@ -2693,6 +2694,18 @@
             "rid": "win-x86",
             "assetType": "native"
           }
+        }
+      },
+      "ShieldUI.AspNetCore.Mvc/1.7.31": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc": "2.0.0",
+          "NETStandard.Library": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard1.6/ShieldUI.AspNetCore.Mvc.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.6/ShieldUI.AspNetCore.Mvc.dll": {}
         }
       },
       "SQLitePCLRaw.bundle_green/1.1.7": {
@@ -5639,6 +5652,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "ShieldUI.AspNetCore.Mvc/1.7.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nNVvLG34OilbC+b6y/C9x+k4+lTWAQUBku1UOkmii4F5XdTXZBm0k6Sfwi25KVoUF7MDlo0KrmiZIVcyj5XFfQ==",
+      "path": "shieldui.aspnetcore.mvc/1.7.31",
+      "hashPath": "shieldui.aspnetcore.mvc.1.7.31.nupkg.sha512"
     },
     "SQLitePCLRaw.bundle_green/1.1.7": {
       "type": "package",
