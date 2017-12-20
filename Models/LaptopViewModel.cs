@@ -10,6 +10,7 @@ namespace project5_6.Models
     {
         public int Id { get; set; }
         public DateTime date_added { get; set; }
+        public int product_id { get; set; }
         public int image_id { get; set; }
         public string category { get; set; }
         public string brand { get; set; }
@@ -18,13 +19,11 @@ namespace project5_6.Models
         public float price { get; set; }
         public string screen_size { get; set; }  
         public string panel_type { get; set; }  
-        public string keyboard_layout { get; set; } 
         public string operating_system { get; set; }
         public string processor { get; set; }
         public string graphic_card { get; set; }
         public string ram { get; set; }
         public string main_storage { get; set; }
-        public string main_storage_type { get; set; }
         public bool extra_storage { get; set; }
         public bool webcam { get; set; }
         public bool hdmi { get; set; }
@@ -32,6 +31,8 @@ namespace project5_6.Models
         public bool dvd_drive { get; set; }
         public bool staff_picked { get; set; }
         public string recommended_purpose { get; set; }
+        public int supply { get; set; }
+        
 
     }
 }

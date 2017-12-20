@@ -238,11 +238,7 @@ namespace project5_6.Migrations
 
                     b.Property<int>("image_id");
 
-                    b.Property<string>("keyboard_layout");
-
                     b.Property<string>("main_storage");
-
-                    b.Property<string>("main_storage_type");
 
                     b.Property<string>("model_name");
 
@@ -254,6 +250,8 @@ namespace project5_6.Migrations
 
                     b.Property<string>("processor");
 
+                    b.Property<int>("product_id");
+
                     b.Property<string>("ram");
 
                     b.Property<string>("recommended_purpose");
@@ -261,6 +259,8 @@ namespace project5_6.Migrations
                     b.Property<string>("screen_size");
 
                     b.Property<bool>("staff_picked");
+
+                    b.Property<int>("supply");
 
                     b.Property<bool>("touchscreen");
 

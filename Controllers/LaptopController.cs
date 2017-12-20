@@ -23,12 +23,12 @@ namespace project5_6.Controllers
         // GET: Laptop
         public async Task<IActionResult> Index(string processor, string laptop, string recommended_purpose, string screen_size, string ram, string main_storage, bool hdmi)
         {
-            ViewBag.laptop = (from x in _context.Laptop select x.brand).Distinct();
-            ViewBag.processor = (from x in _context.Laptop select x.processor).Distinct();
-            ViewBag.screen_size = (from x in _context.Laptop select x.screen_size).Distinct();
-            ViewBag.recommended_purpose = (from x in _context.Laptop select x.recommended_purpose).Distinct();
-            ViewBag.ram = (from x in _context.Laptop select x.ram).Distinct();
-            ViewBag.main_storage = (from x in _context.Laptop select x.main_storage).Distinct();
+            ViewBag.laptop = (from x in _context.Laptop.OrderBy(x => x.brand) select x.brand).Distinct();
+            ViewBag.processor = (from x in _context.Laptop.OrderBy(x => x.processor)select x.processor).Distinct();
+            ViewBag.screen_size = (from x in _context.Laptop.OrderBy(x => x.screen_size) select x.screen_size  ).Distinct();
+            ViewBag.recommended_purpose = (from x in _context.Laptop.OrderBy(x => x.recommended_purpose) select x.recommended_purpose).Distinct();
+            ViewBag.ram = (from x in _context.Laptop.OrderByDescending(x => x.ram) select x.ram).Distinct();
+            ViewBag.main_storage = (from x in _context.Laptop.OrderByDescending(x => x.main_storage) select x.main_storage).Distinct();
 
             // laptop == brand voor nu i know fucked up
             var webContext2 = _context.Laptop.Where(p => p.processor.Contains(processor));
@@ -75,7 +75,7 @@ namespace project5_6.Controllers
             }
             else
             {
-                return View(await _context.Laptop.ToListAsync());
+                return View(await _context.Laptop.OrderByDescending(x=> x.supply).ToListAsync());
             }
         }
 
