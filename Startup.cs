@@ -13,6 +13,7 @@ using project5_6.Models;
 using project5_6.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ShieldUI.AspNetCore.Mvc;
 
 namespace project5_6
 {
@@ -29,7 +30,7 @@ namespace project5_6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WebContext>(
-                opt => opt.UseNpgsql(@"Host=localhost;Database=Project5_6_real5;Username=postgres;Password=a8574fd872")
+                opt => opt.UseNpgsql(@"Host=localhost;Database=Project5_6_real5;Username=postgres;Password=B4eq2A")
             );
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<WebContext>()
@@ -37,6 +38,9 @@ namespace project5_6
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+
+            // add ShieldUI
+            services.AddShieldUI();
 
             services.AddMvc();
         }

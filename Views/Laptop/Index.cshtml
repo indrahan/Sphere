@@ -17,11 +17,10 @@
     </environment>
 </head>
 <body>
-
-<div class ="container-fluid">
-    <div class="row"></div>
-        <div class="col-lg-9">
-            <div class="affix" style="left:50px;">
+    <div class ="container-fluid">
+        <div class="row"></div>
+            <div class="col-md-3">
+                <div class="affix" style="left:50px;">
                     <form class="form-horizontal">
                         <div class="form-group" >
                             @using (Html.BeginForm()) {
@@ -31,13 +30,13 @@
                             <h5>Processor</h5>
                             @Html.DropDownList("processor", new SelectList(ViewBag.processor), string.Empty)
                             <br>
-							<h5>Screen Size</h5>
+                            <h5>Screen Size</h5>
                             @Html.DropDownList("screen_size", new SelectList(ViewBag.screen_size), string.Empty)
                             <br>
                             <h5>Purpose</h5>
                             @Html.DropDownList("recommended_purpose", new SelectList(ViewBag.recommended_purpose), string.Empty)
                             <br>
-							<h5>RAM</h5>
+                            <h5>RAM</h5>
                             @Html.DropDownList("ram", new SelectList(ViewBag.ram), string.Empty)
                             <br>
                             <h5>Storage Size</h5>
@@ -50,70 +49,48 @@
                         </div>
                     </form>
                 </div>
-            </div>
-     
-        
-@using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}        
-<hr>
-@foreach (var item in Model) {
-    
-    <div class="col-md-4">
-        <div class="product-item">
-            <div class="thumbnail">
-                <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id"><img src="@Url.Content("~/images/" + item.image_id + ".jpg")" style="width:280;height:240px" class="img-responsive"></a>
-                <br>
-                @if (item.supply == 0)
-                {
-                    <table class="table">
-                    <tbody>
-                    <tr class="techSpecRow"><td class="techSpecTD1"></td><td class="techSpecTD2">
-                        &bull; @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)
-                        
-                        <br>
-                        &bull; @Html.DisplayFor(modelItem => item.processor)<br>
-                        &bull; @Html.DisplayFor(modelItem => item.main_storage) SSD<br>
-                        &bull; @Html.DisplayFor(modelItem => item.graphic_card)<br><br>
-
-                        
-                        &euro; @Html.DisplayFor(modelItem => item.price) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    |   @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
-                    		<br>
-                            <br>
-                            @if (User.IsInRole("Administrator")){
-                            <li><a asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id">Edit product</a></li>}
-                            <br>
-                            <strong>OUT OF STOCK</strong>
-                    </tbody>
-				</table>
-                }
-                else 
-                {
-                <table class="table">
-                    <tbody>
-                    <tr class="techSpecRow"><td class="techSpecTD1"></td><td class="techSpecTD2">
-                        &bull; @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)
-                        
-                        <br>
-                        &bull; @Html.DisplayFor(modelItem => item.processor)<br>
-                        &bull; @Html.DisplayFor(modelItem => item.main_storage) SSD<br>
-                        &bull; @Html.DisplayFor(modelItem => item.graphic_card)<br><br>
-
-                        
-                        &euro; @Html.DisplayFor(modelItem => item.price) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                        @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
-                    |   @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
-                    		<br>
-                            <br>
-                            @if (User.IsInRole("Administrator")){
-                            <li><a asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id">Edit product</a></li>}
-                            <br>
-                            <strong>@Html.DisplayFor(modelItem => item.supply) available</strong>
-                    </tbody>
-				</table>
-                }
-            </div>
+            </div>      
+            @using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}        
+            <hr />
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">                
+                    <div class="col-md-12 thumbnail">
+                        <p class="text-center">
+                            <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id">
+                                <img class="img-responsive" style="width:280;height:240px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
+                            </a>
+                        </p>
+                        <h4 class="text-primary text-center">
+                            <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id">
+                                @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)
+                            </a>
+                        </h4>
+                        <p>
+                            <ul>
+                                <li>@Html.DisplayFor(modelItem => item.processor)</li>
+                                <li>@Html.DisplayFor(modelItem => item.main_storage) SSD</li>
+                                <li>@Html.DisplayFor(modelItem => item.graphic_card)</li>
+                            </ul>
+                        <h4 class="text-succes text-right">€@Html.DisplayFor(modelItem => item.price),-</h4>
+                        <p class="text-right">
+                            @if (item.supply != 0)
+                            {
+                                @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
+                            }
+                            else
+                            {
+                                <strong>Out of stock</strong>
+                            }
+                            | @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})<br />
+                            @if (User.IsInRole("Administrator"))
+                            {
+                                <a asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id">Edit product</a>
+                            }
+                        </p>
+                    </div>
+                </div>
+            }
         </div>
-    </div> }
     </div>
-</div>
 </body>

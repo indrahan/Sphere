@@ -11,8 +11,8 @@ using System;
 namespace project5_6.Migrations
 {
     [DbContext(typeof(WebContext))]
-    [Migration("20171219143847_SphereInit")]
-    partial class SphereInit
+    [Migration("20171220123319_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

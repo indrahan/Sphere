@@ -3132,6 +3132,19 @@
           }
         }
       },
+      "ShieldUI.AspNetCore.Mvc/1.7.31": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc": "1.1.2",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.6/ShieldUI.AspNetCore.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/ShieldUI.AspNetCore.Mvc.dll": {}
+        }
+      },
       "SQLitePCLRaw.bundle_green/1.1.7": {
         "type": "package",
         "dependencies": {
@@ -8323,6 +8336,16 @@
         "version.txt"
       ]
     },
+    "ShieldUI.AspNetCore.Mvc/1.7.31": {
+      "sha512": "nNVvLG34OilbC+b6y/C9x+k4+lTWAQUBku1UOkmii4F5XdTXZBm0k6Sfwi25KVoUF7MDlo0KrmiZIVcyj5XFfQ==",
+      "type": "package",
+      "path": "shieldui.aspnetcore.mvc/1.7.31",
+      "files": [
+        "lib/netstandard1.6/ShieldUI.AspNetCore.Mvc.dll",
+        "shieldui.aspnetcore.mvc.1.7.31.nupkg.sha512",
+        "shieldui.aspnetcore.mvc.nuspec"
+      ]
+    },
     "SQLitePCLRaw.bundle_green/1.1.7": {
       "sha512": "Kw+n4CUhQ8S4YAPmpRUldO8S7c4LU7HHukJF0v5Sfggf8Ia9YVdIh0dYkMvKvS+DTX+OBORSMqPM0CGfAzFtVA==",
       "type": "package",
@@ -13152,27 +13175,28 @@
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0",
       "Newtonsoft.Json >= 10.0.3",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 2.0.0"
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 2.0.0",
+      "ShieldUI.AspNetCore.Mvc >= 1.7.31"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\I. Han\\.nuget\\packages\\": {},
+    "C:\\Users\\stijn\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\project5_6.csproj",
+      "projectUniqueName": "C:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\project5_6.csproj",
       "projectName": "project5_6",
-      "projectPath": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\project5_6.csproj",
-      "packagesPath": "C:\\Users\\I. Han\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\obj\\",
+      "projectPath": "C:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\project5_6.csproj",
+      "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\I. Han\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13196,32 +13220,36 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
-          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
-            "version": "2.0.0"
+            "version": "[2.0.0, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0"
+            "version": "[2.0.0, )"
           },
-          "Newtonsoft.Json": {
+          "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "10.0.3"
-          },
-          "Npgsql.EntityFrameworkCore.PostgreSQL": {
-            "target": "Package",
-            "version": "2.0.0"
+            "version": "[2.0.0, )",
+            "autoReferenced": true
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0"
+            "version": "[2.0.0, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[10.0.3, )"
+          },
+          "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
+          "ShieldUI.AspNetCore.Mvc": {
+            "target": "Package",
+            "version": "[1.7.31, )"
           }
         },
         "imports": [

@@ -100,5 +100,11 @@ namespace project5_6.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Statistics()
+        {
+            ViewBag.january = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 02, 01) && x.date_added <= new DateTime(2017, 04, 1) select x.supply).Sum();
+            return View();
+        }
     }
 }
