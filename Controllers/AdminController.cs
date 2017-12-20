@@ -96,6 +96,12 @@ namespace project5_6.Controllers
             return RedirectToAction("Index", "Admin");
         }
 
+        public IActionResult StatisticsPage(string id)
+        {
+            var WebContext = _context.Cart.Where(p => p.user_id.Equals(id));
+            return View();  
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

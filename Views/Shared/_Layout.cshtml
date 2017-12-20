@@ -38,7 +38,10 @@
                     <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
                     }
 
-                    
+                    @if (User.IsInRole("Administrator"))
+                    {
+                    <li><a asp-area="" asp-controller="Laptop" asp-action="Index">Show all products</a></li>
+                    }
 
                     @if (!User.IsInRole("Administrator"))
                     {

@@ -53,6 +53,13 @@ namespace project5_6.Controllers
             return View(await webContext.ToListAsync());
         }
 
+        public async Task<IActionResult> CheckoutSucces(string id)
+        {
+            var webContext = _context.Cart.Where(p => p.user_id.Equals(id));
+
+            return View(await webContext.ToListAsync());
+        }
+
         // GET: Cart/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -13156,30 +13156,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\I. Han\\.nuget\\packages\\": {},
+    "C:\\Users\\m0jovazky\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\project5_6.csproj",
+      "projectUniqueName": "C:\\Users\\m0jovazky\\Documents\\GitHub\\Sphere\\project5_6.csproj",
       "projectName": "project5_6",
-      "projectPath": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\project5_6.csproj",
-      "packagesPath": "C:\\Users\\I. Han\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\obj\\",
+      "projectPath": "C:\\Users\\m0jovazky\\Documents\\GitHub\\Sphere\\project5_6.csproj",
+      "packagesPath": "C:\\Users\\m0jovazky\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\m0jovazky\\Documents\\GitHub\\Sphere\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\I. Han\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\m0jovazky\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
