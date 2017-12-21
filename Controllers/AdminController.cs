@@ -100,11 +100,9 @@ namespace project5_6.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
-        
+
         public IActionResult Statistics()
         {
-<<<<<<< HEAD
             ViewBag.january = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 01, 01) && x.date_added < new DateTime(2017, 02, 01) select x.supply).Sum();
             ViewBag.february = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 02, 01) && x.date_added < new DateTime(2017, 03, 01) select x.supply).Sum();
             ViewBag.march = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 03, 01) && x.date_added < new DateTime(2017, 04, 01) select x.supply).Sum();
@@ -118,41 +116,6 @@ namespace project5_6.Controllers
             ViewBag.november = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 11, 01) && x.date_added < new DateTime(2017, 12, 01) select x.supply).Sum();
             ViewBag.december = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 12, 01) && x.date_added < new DateTime(2018, 01, 01) select x.supply).Sum();
 
-=======
-            ViewBag.OutOfStockCount = (from x in _context.Laptop where x.supply <= 2 select x.Id).Count();
-            return View();
-        }
-        
-        [Route("Admin/Statistics/Products/OutOfStock")]
-        public IActionResult ProductsOutOfStock()
-        {
-            var webContext = _context.Laptop.Where(p => p.supply <= 2).OrderBy(p => p.supply);
-            return View(webContext.ToList());
-        }
-
-        [Route("Admin/Statistics/Products/ProductsAdded/{year:regex(\\d{{4}}):range(2000,2999)}")]
-        public IActionResult ProductsAdded(int year)
-        {
-            int[] GetAmountAddedByMonth(int _year)
-            {
-                int[] AmountAddedByMonth = new int[12];
-                for (int i = 0; i < AmountAddedByMonth.Length; i++)
-                {
-                    if (i == AmountAddedByMonth.Length - 1)
-                    {
-                        AmountAddedByMonth[i] = (from x in _context.Laptop where x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime((_year + 1), 1, 1) select x.supply).Sum();
-                    }
-                    else
-                    {
-                        AmountAddedByMonth[i] = (from x in _context.Laptop where x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime(_year, (i + 2), 1) select x.supply).Sum();
-                    }
-                }
-                return AmountAddedByMonth;
-
-            }
-            ViewBag.AmountAdded = GetAmountAddedByMonth(year);
-            //ViewBag.january = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 01, 01) && x.date_added < new DateTime(2017, 02, 1) select x.supply).Sum();
->>>>>>> master
             return View();
         }
     }
