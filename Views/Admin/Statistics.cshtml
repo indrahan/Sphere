@@ -1,24 +1,30 @@
-@(Html.ShieldChart()
-    .Name("chart")
-    .Tooltip(tooltip => tooltip.AxisMarkers(axisMarkers => axisMarkers
-        .Enabled(true)
-        .Mode(ShieldUI.AspNetCore.Mvc.Chart.TooltipAxisMarkerMode.XY)
-        .Width(1)
-        .ZIndex(3)))
-    .Theme("light")
-    .PrimaryHeader(header => header.Text("Products added"))
-    .Export(false)
-    .AxisX(axis => axis.CategoricalValues(
-        "Jan", "Feb", "Mrt", "Apr", "Mei", 
-        "Jun", "Jul", "Aug", "Sep", "Okt", 
-        "Nov", "Dec"
-    ))
-    .DataSeries(series =>
-        series.Bar()
-              .Name("Products")
-              .Data(new object[] { 
-                  ViewBag.january, 23, 16, 7, 12, 
-                  33, 19
-              })
-    )
-)
+@{
+    ViewData["Title"] = "Statistics";
+}
+
+<h2>Statistics</h2>
+<a class="btn btn-success" asp-action="Index">Back</a>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        @if (ViewBag.OutOfStockCount == 0)
+        {
+            <h3>
+                All products are in stock.
+            </h3>
+        }
+        else
+        {
+            <h4>
+                There are @ViewBag.OutOfStockCount products almost out of stock
+            </h4>
+            <a asp-area="" asp-controller="Admin" asp-action="ProductsOutOfStock" class="btn btn-info">See Products</a>
+        }
+    </div>
+    <div class="col-md-6">
+        <h4>
+            Products added barchart
+        </h4>
+        <a class="btn btn-info" href="Statistics/Products/ProductsAdded/2017">See Chart</a>
+    </div>
+</div>
