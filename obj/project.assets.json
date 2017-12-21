@@ -13186,11 +13186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\project5_6.csproj",
+      "projectUniqueName": "C:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\project5_6.csproj",
       "projectName": "project5_6",
-      "projectPath": "c:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\project5_6.csproj",
+      "projectPath": "C:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\project5_6.csproj",
       "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\obj\\",
+      "outputPath": "C:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
