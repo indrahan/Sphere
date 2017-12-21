@@ -7,7 +7,7 @@
     ViewData["Title"] = "Index";
 }
 <div class="row" style="padding-top:20px;">
-    @using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}        
+    @using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input class="btn btn-primary" type="submit" value="Search" /></center></p>}        
     <hr />
 </div>
 <div class="row">
@@ -34,8 +34,7 @@
             @Html.DropDownList("main_storage", new SelectList(ViewBag.main_storage), string.Empty)
             <br>
             <br>
-            <br>
-            <input type="submit" value="Filter"/>
+            <input class="btn btn-info" type="submit" value="Filter"/>
             }
         </div>
     </form>
