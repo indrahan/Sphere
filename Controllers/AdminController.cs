@@ -115,27 +115,27 @@ namespace project5_6.Controllers
             return View(webContext.ToList());
         }
 
-        [Route("Admin/Statistics/Products/ProductsAdded/{year:regex(\\d{{4}}):range(2000,2999)}")]
-        public IActionResult ProductsAdded(int year)
+        [Route("Admin/Statistics/Products/ProductsAdded/{brand}/{year:regex(\\d{{4}}):range(2000,2999)}")]
+        public IActionResult ProductsAdded(int year, string brand)
         {
-            int[] GetAmountAddedByMonth(int _year)
+            int[] GetAmountAddedByMonth(int _year, string _brand)
             {
                 int[] AmountAddedByMonth = new int[12];
                 for (int i = 0; i < AmountAddedByMonth.Length; i++)
                 {
                     if (i == AmountAddedByMonth.Length - 1)
                     {
-                        AmountAddedByMonth[i] = (from x in _context.Laptop where x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime((_year + 1), 1, 1) select x.supply).Sum();
+                        AmountAddedByMonth[i] = (from x in _context.Laptop where x.brand == _brand && x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime((_year + 1), 1, 1) select x.supply).Sum();
                     }
                     else
                     {
-                        AmountAddedByMonth[i] = (from x in _context.Laptop where x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime(_year, (i + 2), 1) select x.supply).Sum();
+                        AmountAddedByMonth[i] = (from x in _context.Laptop where x.brand == _brand && x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime(_year, (i + 2), 1) select x.supply).Sum();
                     }
                 }
                 return AmountAddedByMonth;
 
             }
-            ViewBag.AmountAdded = GetAmountAddedByMonth(year);
+            ViewBag.AmountAdded = GetAmountAddedByMonth(year, brand);
             //ViewBag.january = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 01, 01) && x.date_added < new DateTime(2017, 02, 1) select x.supply).Sum();
             return View();
         }
