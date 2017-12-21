@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
                 <th>
@@ -82,7 +82,7 @@
                 @Html.DisplayFor(modelItem => item.date_added)
             </td>
             <td>
-                <img style="width:100;height:70px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
+                <img style="width:70;height:50px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.category)
