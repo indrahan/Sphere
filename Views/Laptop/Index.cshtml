@@ -61,6 +61,7 @@
                                 <img class="img-responsive" style="width:280;height:240px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
                             </a>
                         </p>
+                        
                         <h4 class="text-primary text-center">
                             <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id">
                                 @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)
