@@ -5,6 +5,43 @@
 <h2>Products Added</h2>
 <a class="btn btn-success" asp-action="Statistics">Back</a>
 <hr />
+<div class="row">
+    <p class="text-right">
+        @if (ViewBag.CurrentBrand == "All")
+        {
+            <a class="btn btn-primary disabled" href="../All/@ViewBag.CurrentYear">All</a>
+        }
+        else
+        {
+            <a class="btn btn-primary" href="../All/@ViewBag.CurrentYear">All</a>
+        }
+
+        @foreach (var brand in ViewBag.Brand)
+        {
+            if (brand == ViewBag.CurrentBrand)
+            {
+                <a class="btn btn-primary disabled" href="../@brand/@ViewBag.CurrentYear">@brand</a>
+            }
+            else
+            {
+                <a class="btn btn-primary" href="../@brand/@ViewBag.CurrentYear">@brand</a>
+            }
+        }
+    </p>
+    <p class="text-right">
+        @for (int i = 2016; i < 2019; i++)
+        {
+            if (i == ViewBag.CurrentYear)
+            {
+                <a class="btn btn-success disabled" href="../@ViewBag.CurrentBrand/@i">@i</a>
+            }
+            else
+            {
+                <a class="btn btn-success" href="../@ViewBag.CurrentBrand/@i">@i</a>
+            }
+        }
+    </p>
+</div>
 
 <div class="row">
 @(Html.ShieldChart()
@@ -15,7 +52,7 @@
         .Width(1)
         .ZIndex(3)))
     .Theme("light")
-    .PrimaryHeader(header => header.Text("Products added"))
+    .PrimaryHeader(header => header.Text(ViewBag.CurrentBrand))
     .Export(false)
     .AxisX(axis => axis.CategoricalValues(
         "Jan", "Feb", "Mrt", "Apr", "Mei", 

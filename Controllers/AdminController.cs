@@ -121,22 +121,46 @@ namespace project5_6.Controllers
             int[] GetAmountAddedByMonth(int _year, string _brand)
             {
                 int[] AmountAddedByMonth = new int[12];
-                for (int i = 0; i < AmountAddedByMonth.Length; i++)
+
+                if (_brand == "All")
                 {
-                    if (i == AmountAddedByMonth.Length - 1)
+                    for (int i = 0; i < AmountAddedByMonth.Length; i++)
                     {
-                        AmountAddedByMonth[i] = (from x in _context.Laptop where x.brand == _brand && x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime((_year + 1), 1, 1) select x.supply).Sum();
+                        if (i == AmountAddedByMonth.Length - 1)
+                        {
+                            AmountAddedByMonth[i] = (from x in _context.Laptop where x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime((_year + 1), 1, 1) select x.supply).Sum();
+                        }
+                        else
+                        {
+                            AmountAddedByMonth[i] = (from x in _context.Laptop where x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime(_year, (i + 2), 1) select x.supply).Sum();
+                        }
                     }
-                    else
-                    {
-                        AmountAddedByMonth[i] = (from x in _context.Laptop where x.brand == _brand && x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime(_year, (i + 2), 1) select x.supply).Sum();
-                    }
-                }
                 return AmountAddedByMonth;
+                }
+                else
+                {
+                    for (int i = 0; i < AmountAddedByMonth.Length; i++)
+                    {
+                        if (i == AmountAddedByMonth.Length - 1)
+                        {
+                            AmountAddedByMonth[i] = (from x in _context.Laptop where x.brand == _brand && x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime((_year + 1), 1, 1) select x.supply).Sum();
+                        }
+                        else
+                        {
+                            AmountAddedByMonth[i] = (from x in _context.Laptop where x.brand == _brand && x.date_added >= new DateTime(_year, (i + 1), 1) && x.date_added < new DateTime(_year, (i + 2), 1) select x.supply).Sum();
+                        }
+                    }
+                    return AmountAddedByMonth;
+                }
 
             }
+
+            ViewBag.Brand = (from x in _context.Laptop.OrderBy(x => x.brand) select x.brand).Distinct().ToArray();
+            
+            ViewBag.CurrentBrand = brand;
+            ViewBag.CurrentYear = year;
+
             ViewBag.AmountAdded = GetAmountAddedByMonth(year, brand);
-            //ViewBag.january = (from x in _context.Laptop where x.date_added >= new DateTime(2017, 01, 01) && x.date_added < new DateTime(2017, 02, 1) select x.supply).Sum();
             return View();
         }
     }
