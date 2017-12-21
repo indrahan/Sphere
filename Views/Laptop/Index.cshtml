@@ -76,13 +76,13 @@
                         <p class="text-right">
                             @if (item.supply != 0)
                             {
-                                @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
+                                @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)}, new { @class="cart" }) &nbsp; &nbsp;
                             }
                             else
                             {
                                 <strong>Out of stock</strong>
                             }
-                            | @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})<br />
+                            |   @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)}, new { @class="list"})<br />
                             @if (User.IsInRole("Administrator"))
                             {
                                 <a asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id">Edit product</a>
