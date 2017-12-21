@@ -66,8 +66,7 @@
                     @if (User.IsInRole("Administrator"))
                     {
                     <li><a asp-area="" asp-controller="Laptop" asp-action="Index">Show all products</a></li>
-                    <li><a asp-area="" asp-controller="Cart" asp-action="Index3" asp-route-id="@UserManager.GetUserId(User)" class="glyphicon glyphicon-shopping-cart" style="font-size:25px;color:rgb(103, 103, 214);"></a></li>
-                    <li><a asp-area="" asp-controller="Wishlist" asp-action="Index2" asp-route-id="@UserManager.GetUserId(User)" class="glyphicon glyphicon-heart" style="font-size:25px;color:rgb(241, 71, 71);"></a></li>
+                   
                     }
 
                 </ul>

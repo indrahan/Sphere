@@ -4,19 +4,16 @@
 @inject UserManager<ApplicationUser> UserManager
 
 @{ViewData["Title"] = "Clicked";}
+@foreach (var item in Model) {
 
- <div class="container-fluid"> @foreach (var item in Model) {		
-	<div class="container">	
-		<div class="col-sm-7">
-			<br>
-			<div class="col-sm-12">
-			<img src="@Url.Content("~/images/" + item.image_id + ".jpg")" class="img-responsive">  
-			<h4><strong>Product description:</strong></h4>
-			<p>@Html.DisplayFor(modelItem => item.description)</p>
-			<p>€ @Html.DisplayFor(modelItem => item.price)</p>
-			<p> @Html.ActionLink("Add to cart","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})
-    	 		| @Html.ActionLink("Add to wishlist","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)})</p>
-			<br>
+<div class="row">
+	<div class="col-md-8">
+		<div class="col-md-12">
+			<img src="@Url.Content("~/images/" + item.image_id + ".jpg")" class="img-responsive" style="width:350px;height:350px;">
+			<h3 class="text-primary"><strong>@Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)</strong> @Html.DisplayFor(modelItem => item.processor) - @Html.DisplayFor(modelItem => item.graphic_card) - @Html.DisplayFor(modelItem => item.ram) RAM</h3>
+			<p>
+				@Html.DisplayFor(modelItem => item.description)
+			</p>
 			<table class="table table-bordered">
 				<tbody>
 				<tr class="techSpecRow"><th colspan="2">More specifications</th></tr>
@@ -31,10 +28,31 @@
                 <tr class="techSpecRow"><td class="techSpecTD1">Recommended Purpose: </td><td class="techSpecTD2">@Html.DisplayFor(modelItem => item.recommended_purpose)</td></tr>
 				</tbody>
 			</table>
-			</div>
 		</div>
-		</div>
-
+	</div>
+	<div class="col-md-4">
+		<h3 style="margin-top:30%;"><strong>€@Html.DisplayFor(modelItem => item.price),-</strong></h3>
+		@if (item.supply != 0)
+		{
+			<p style="color:green;">
+				<strong><span class="glyphicon glyphicon-ok"></span> Today ordered, tommorow in home!</strong>
+			</p>
 		}
+		else
+		{
+			<p style="color:red;">
+				<strong><span class="glyphicon glyphicon-remove"></span> Today ordered, tommorow not in home!</strong>
+			</p>
+		}
+		@if (item.supply != 0)
+            {
+                @Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-success btn-block btn-large glyphicon glyphicon-shopping-cart" })
+            }
+            else
+            {
+            	@Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-danger btn-block btn-large glyphicon glyphicon-remove disabled" })
+    		}
+            @Html.ActionLink("","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-block btn-large glyphicon glyphicon-heart" })<br />
 	</div>
 </div>
+}

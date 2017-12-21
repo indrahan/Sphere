@@ -1,0 +1,53 @@
+@model IEnumerable<project5_6.Models.Cart>
+
+@{
+    ViewData["Title"] = "CheckoutSucces";
+}
+
+<br>
+<h3><strong>Thankyou for ordering your products at Sphere!</strong></h3>
+
+<section id="contact">
+<div class="well well-sm">
+<h4><strong>If you have any questions about your order, feel free to contact us!</strong></h4>
+</div>
+	<div class="row">
+	  <div class="col-md-7">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9843.522436975007!2d4.476146509362788!3d51.91788932470553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xed54cfc9f8ebad3!2sHogeschool+Rotterdam+Wijnhaven+107!5e0!3m2!1snl!2snl!4v1513187054072" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+
+      <div class="col-md-5">
+          <h4><strong>Get in Touch</strong></h4>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" name="" value="" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" name="" value="" placeholder="E-mail">
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-control" name="" value="" placeholder="Phone">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="" rows="3" placeholder="Message"></textarea>
+          </div>
+          <button class="btn btn-default" type="submit" name="button" data-toggle="modal" data-target="#myModal">
+              <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Send
+          </button>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <button type="submit" class="close" data-dismiss="modal">×</button>
+                                <h4 class="modal-title">Success</h4>
+                        </div>
+                        <div class="modal-body">
+                                <p>Your message has been sent to us!</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+</section>

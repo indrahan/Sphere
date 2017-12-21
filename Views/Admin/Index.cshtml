@@ -22,42 +22,27 @@
 
 <div class="container">
 	<div class="row">
-		<button type="submit"  value="Upload" class="pull-left btn btn-info" data-toggle="modal" data-target="#myModal">Upload CSV</button>
-            <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                                <div class="modal-content">
-                                        <div class="modal-header">
-                                                <button type="submit" class="close" data-dismiss="modal">×</button>
-                                                <h4 class="modal-title">Success</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                                <p>Your file is uploaded</p>
-                                        </div>
-                                        <!-- <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div> -->
+                <!-- Button to trigger modal -->
+                <a class="btn btn-info" href="#myModal" role="button" class="btn btn-custom" data-toggle="modal">Upload CSV</a>
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Are you sure?</h4>
+                        </div>
+                                <div class="modal-body">
+                                <form id="my-form">
+                                <button type="submit" class="btn btn-success"  value="Upload" class="pull-left" data-toggle="modal" data-target="#myModal">Upload</button>
+                                <br />
+                                </form>
+                                
                                 </div>
-
-                    </div>
-            </div>
-	</div>
-</div>
-
-<div>
-        <!-- <button type="submit" value="Upload" class="btn btn-lg btn-success" data-toggle="popover" data-content="Success">Click to toggle popover</button> -->
-
-        <!-- <div class="col-md-10"><head>
-        <script type="text/javascript">
-        function conf()
-        {
-        var con=confirm("Do you want to submit for sure?");
-        }
-        </script>
-        </head>
-        <body>
-        <form><input type="submit" onClick="conf()"/></form>
-        </body>
-        <input type="submit" value="Upload" /> -->
+                                </div>
+                                </div>
+                        </div>
+        </div>
 </div>
 </div>
 </form>
