@@ -111,7 +111,7 @@ namespace project5_6.Controllers
         [Route("Admin/Statistics/Products/OutOfStock")]
         public IActionResult ProductsOutOfStock()
         {
-            var webContext = _context.Laptop.Where(p => p.supply <= 2).OrderBy(p => p.supply);
+            var webContext = _context.Laptop.Where(p => p.supply <= 2).OrderBy(p => p.brand).OrderBy(p => p.supply);
             return View(webContext.ToList());
         }
 

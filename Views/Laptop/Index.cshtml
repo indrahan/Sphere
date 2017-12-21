@@ -4,7 +4,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Products";
 }
 <div class="row" style="padding-top:20px;">
     @using (Html.BeginForm()) {<p class="text-center">@Html.TextBox("SearchString") <input class="btn btn-primary" type="submit" value="Search" /></p>}        
@@ -12,6 +12,7 @@
 </div>
 <div class="row">
 <div class="col-md-2">
+<div class="col-md-2 affix">
     <form class="form-horizontal">
         <div class="form-group">
             @using (Html.BeginForm()) {
@@ -38,6 +39,7 @@
             }
         </div>
     </form>
+</div>
 </div>
 <div class="col-md-10">
     @foreach (var item in Model)
