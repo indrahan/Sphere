@@ -30,7 +30,7 @@ namespace project5_6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WebContext>(
-                opt => opt.UseNpgsql(@"Host=localhost;Database=Project5_6_real5;Username=postgres;Password=a8574fd872")
+                opt => opt.UseNpgsql(@"Host=localhost;Database=Project5_6_real5;Username=postgres;Password=B4eq2A")
             );
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<WebContext>()

@@ -122,3 +122,21 @@ table td {
     float:right;
     width:100px;
 }
+
+a.list
+{
+    background: url(../images/cart.png) ;
+     display: inline-flex;
+     width: 30px;
+     height: 30px;
+     text-indent: -9999px; /* hides the link text */
+}
+
+a.cart
+{
+    background: url(../images/list.png) ;
+     display: inline-flex;
+     width: 30px;
+     height: 30px;
+     text-indent: -9999px; /* hides the link text */
+}
