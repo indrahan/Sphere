@@ -8,8 +8,8 @@
 {
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
-         <li><a asp-area="" asp-controller="Cart" asp-action="Index3" asp-route-id="@UserManager.GetUserId(User)" class="glyphicon glyphicon-shopping-cart" style="font-size:25px;color:rgb(103, 103, 214);"></a></li>
-                    <li><a asp-area="" asp-controller="Wishlist" asp-action="Index2" asp-route-id="@UserManager.GetUserId(User)" class="glyphicon glyphicon-heart" style="font-size:25px;color:rgb(241, 71, 71);"></a></li>
+            <li><a asp-area="" asp-controller="Cart" asp-action="Index3" asp-route-id="@UserManager.GetUserId(User)" class="glyphicon glyphicon-shopping-cart" style="font-size:25px;color:rgb(103, 103, 214);"></a></li>
+            <li><a asp-area="" asp-controller="Wishlist" asp-action="Index2" asp-route-id="@UserManager.GetUserId(User)" class="glyphicon glyphicon-heart" style="font-size:25px;color:rgb(241, 71, 71);"></a></li>
             <li>
                 <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)</a>
             </li>
@@ -22,6 +22,8 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Cart" asp-action="Index3" asp-route-id="@UserManager.GetUserId(User)" class="glyphicon glyphicon-shopping-cart" style="font-size:25px;color:rgb(103, 103, 214);"></a></li>
+         <li><a asp-area="" asp-controller="Wishlist" asp-action="Index2" asp-route-id="@UserManager.GetUserId(User)" class="glyphicon glyphicon-heart" style="font-size:25px;color:rgb(241, 71, 71);"></a></li>
         <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
         <li><a asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
     </ul>
