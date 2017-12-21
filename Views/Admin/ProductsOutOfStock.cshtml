@@ -12,6 +12,9 @@
         <thead>
             <tr>
                 <th>
+                    Image
+                </th>
+                <th>
                     Brand
                 </th>
                 <th>
@@ -35,6 +38,9 @@
                 {
                     <tr class="danger">
                         <td>
+                            <img style="width:100;height:70px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.brand)
                         </td>
                         <td>
@@ -54,6 +60,9 @@
                 else
                 {
                     <tr>
+                        <td>
+                            <img style="width:70;height:50px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
+                        </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.brand)
                         </td>

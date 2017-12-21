@@ -16,7 +16,7 @@
                     @Html.DisplayNameFor(model => model.date_added)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.image_id)
+                    Image
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.category)
@@ -82,7 +82,7 @@
                 @Html.DisplayFor(modelItem => item.date_added)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.image_id)
+                <img style="width:100;height:70px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.category)
