@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> parent of 8b522b3... CHECKPOINT 3
 <br>
 @(Html.ShieldChart()
     .Name("chart")
@@ -18,6 +22,7 @@
         series.Bar()
               .Name("Products")
               .Data(new object[] { 
+<<<<<<< HEAD
                     ViewBag.january,
                     ViewBag.february, 
                     ViewBag.march, 
@@ -33,3 +38,42 @@
               })
     )
 )
+=======
+                  ViewBag.january, 23, 16, 7, 12, 
+                  33, 19
+              })
+    )
+)
+=======
+@{
+    ViewData["Title"] = "Statistics";
+}
+
+<h2>Statistics</h2>
+<a class="btn btn-success" asp-action="Index">Back</a>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        @if (ViewBag.OutOfStockCount == 0)
+        {
+            <h3>
+                All products are in stock.
+            </h3>
+        }
+        else
+        {
+            <h4>
+                There are @ViewBag.OutOfStockCount products that need a restock
+            </h4>
+            <a asp-area="" asp-controller="Admin" asp-action="ProductsOutOfStock" class="btn btn-info">See Products</a>
+        }
+    </div>
+    <div class="col-md-6">
+        <h4>
+            Products added barchart
+        </h4>
+        <a class="btn btn-info" href="Statistics/Products/ProductsAdded/2017">See Chart</a>
+    </div>
+</div>
+>>>>>>> Stijn
+>>>>>>> parent of 8b522b3... CHECKPOINT 3

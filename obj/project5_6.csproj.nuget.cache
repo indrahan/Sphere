@@ -1,5 +1,9 @@
 {
   "version": 1,
+<<<<<<< HEAD
   "dgSpecHash": "YGDoQ1dBy/Pf+9c8QidwI51YwNQek5udz0GRK+AS57zBbshaT778Xy6i/nioc/UnunSjJSSXZh7IDH22nseM+Q==",
+=======
+  "dgSpecHash": "Kh2VvdSQBw8QBbWVtxF1hVxhyfqVb4XAUa+Or9bNHyC4is9rYycPZsXhFKUBbXNgRrw7h3en2llApjyzHmc1uA==",
+>>>>>>> parent of 8b522b3... CHECKPOINT 3
   "success": true
 }

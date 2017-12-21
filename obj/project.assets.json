@@ -13186,11 +13186,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\project5_6.csproj",
       "projectName": "project5_6",
       "projectPath": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\project5_6.csproj",
       "packagesPath": "C:\\Users\\I. Han\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\I. Han\\Documents\\GitHub\\Sphere\\obj\\",
+=======
+      "projectUniqueName": "c:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\project5_6.csproj",
+      "projectName": "project5_6",
+      "projectPath": "c:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\project5_6.csproj",
+      "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\stijn\\OneDrive\\Documenten\\GitHub\\Sphere\\obj\\",
+>>>>>>> parent of 8b522b3... CHECKPOINT 3
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
