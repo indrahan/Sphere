@@ -44,13 +44,13 @@
                             <br>
                             <br>
                             <br>
-                            <input type="submit" value="Filter"/>
+                            <input type="submit" value="Filter" class="btn btn-sm"/>
                             }
                         </div>
                     </form>
                 </div>
             </div>      
-            @using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" /></center></p>}        
+            @using (Html.BeginForm()) {<p><center>@Html.TextBox("SearchString") <input type="submit" value="Search" class="btn btn-sm" /></center></p>}        
             <hr />
             @foreach (var item in Model)
             {

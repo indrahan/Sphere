@@ -106,7 +106,7 @@ namespace project5_6.Controllers
 
         public async Task<IActionResult> IndexAdmin()
         {
-            return View(await _context.Laptop.ToListAsync());
+            return View(await _context.Laptop.OrderBy(x=>x.date_added).ToListAsync());
         }
 
 

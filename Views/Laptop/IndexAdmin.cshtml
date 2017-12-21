@@ -16,6 +16,9 @@
                     @Html.DisplayNameFor(model => model.date_added)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.supply)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.image_id)
                 </th>
                 <th>
@@ -80,6 +83,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.date_added)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supply)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.image_id)
