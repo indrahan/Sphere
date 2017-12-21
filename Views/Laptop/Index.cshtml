@@ -61,21 +61,27 @@
                         <li>@Html.DisplayFor(modelItem => item.graphic_card)</li>
                     </ul>
                 <h4 class="text-succes text-right"><strong>€@Html.DisplayFor(modelItem => item.price),-</strong></h4>
-                <p class="text-right">
-                    @if (item.supply != 0)
-                    {
-                        @Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-large glyphicon glyphicon-shopping-cart" })
-                    }
-                    else
-                    {
-                         @Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-large glyphicon glyphicon-shopping-cart disabled" })
-                    }
-                     @Html.ActionLink("","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-large glyphicon glyphicon-heart" })<br />
-                    @if (User.IsInRole("Administrator"))
-                    {
-                        <a asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id">Edit product</a>
-                    }
-                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <a class="btn btn-default" asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-right">
+                            @if (item.supply != 0)
+                            {
+                                @Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-large glyphicon glyphicon-shopping-cart" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-large glyphicon glyphicon-shopping-cart disabled" })
+                            }
+                            @Html.ActionLink("","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-large glyphicon glyphicon-heart" })<br />
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     }
