@@ -4,46 +4,37 @@
 <h2>Admin Panel</h2>
 <p>
         <a class="btn btn-success" asp-controller="Admin" asp-action="Statistics">Statistics page</a>
-        <a class="btn btn-default" asp-controller="Laptop" asp-action="IndexAdmin">Manage laptops</a>
-        <a class="btn btn-default" asp-controller="Users" asp-action="Index">Manage users</a>
-        <a class="btn btn-default" asp-controller="Cart" asp-action="Index2">Manage cart items</a>
-        <a class="btn btn-default" asp-controller="Wishlist" asp-action="Index">Manage Wishlist items</a>
+        <a class="btn btn-primary" asp-controller="Laptop" asp-action="IndexAdmin">Manage laptops</a>
+        <a class="btn btn-primary" asp-controller="Users" asp-action="Index">Manage users</a>
+        <a class="btn btn-primary" asp-controller="Cart" asp-action="Index2">Manage cart items</a>
+        <a class="btn btn-primary" asp-controller="Wishlist" asp-action="Index">Manage Wishlist items</a>
 </p>
 <hr />
 
 <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="Post">
     <div class="form-group">
-        <div class="col-md-10">
-            <p>Upload a file:</p>
+        <p>Upload a file:</p>
             <input type="file" name="files" multiple />
+            <br />
+            <a class="btn btn-primary" href="#myModal" role="button" class="btn btn-custom" data-toggle="modal">Upload CSV</a>
+    </div>
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Are you sure?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="my-form">
+                            <button type="submit" class="btn btn-success"  value="Upload" class="pull-left" data-toggle="modal" data-target="#myModal">Yes</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">No</button>
+                            <br />
+                        </form>        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-
-<div class="container">
-	<div class="row">
-                <!-- Button to trigger modal -->
-                <a class="btn btn-info" href="#myModal" role="button" class="btn btn-custom" data-toggle="modal">Upload CSV</a>
-                        <!-- Modal -->
-                        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Are you sure?</h4>
-                        </div>
-                                <div class="modal-body">
-                                <form id="my-form">
-                                <button type="submit" class="btn btn-success"  value="Upload" class="pull-left" data-toggle="modal" data-target="#myModal">Upload</button>
-                                <br />
-                                </form>
-                                
-                                </div>
-                                </div>
-                                </div>
-                        </div>
-        </div>
-</div>
-</div>
 </form>
 <hr />
