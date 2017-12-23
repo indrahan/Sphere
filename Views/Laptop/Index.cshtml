@@ -17,7 +17,7 @@
         <div class="form-group">
             @using (Html.BeginForm()) {
             <h5>Brand</h5>
-            @Html.DropDownList("laptop", new SelectList(ViewBag.Laptop), string.Empty)
+            @Html.DropDownList("brand", new SelectList(ViewBag.Laptop), string.Empty)
             <br>
             <h5>Processor</h5>
             @Html.DropDownList("processor", new SelectList(ViewBag.processor), string.Empty)
