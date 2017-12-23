@@ -20,38 +20,8 @@ namespace project5_6.Controllers
             _context = context;
         }
 
-        public IQueryable<Laptop> FilterContext(WebContext _currentcontext, string _subject, string _filter)
-        {
-            IQueryable<Laptop> NewContext = _currentcontext.Laptop;
-            if (_subject == "brand")
-            {
-                NewContext = _currentcontext.Laptop.Where(p => p.brand.Contains(_filter));
-            }
-            else if (_subject == "processor")
-            {
-                NewContext = _currentcontext.Laptop.Where(p => p.processor.Contains(_filter));
-            }
-            else if (_subject == "screen_size")
-            {
-                NewContext = _currentcontext.Laptop.Where(p => p.screen_size.Contains(_filter));
-            }
-            else if (_subject == "purpose")
-            {
-                NewContext = _currentcontext.Laptop.Where(p => p.recommended_purpose.Contains(_filter));
-            }
-            else if (_subject == "ram")
-            {
-                NewContext = _currentcontext.Laptop.Where(p => p.ram.Contains(_filter));
-            }
-            else if (_subject == "storage_size")
-            {
-                NewContext = _currentcontext.Laptop.Where(p => p.main_storage.Contains(_filter));
-            }
-            return NewContext;
-        }
-
         // GET: Laptop
-        public async Task<IActionResult> Index(string processor, string brand, string recommended_purpose, string screen_size, string ram, string main_storage, bool hdmi)
+        public async Task<IActionResult> Index(string processor, string brand, string recommended_purpose, string screen_size, string ram, string main_storage, string sortby)
         {
             ViewBag.laptop = (from x in _context.Laptop.OrderBy(x => x.brand) select x.brand).Distinct();
             ViewBag.processor = (from x in _context.Laptop.OrderBy(x => x.processor)select x.processor).Distinct();
@@ -61,6 +31,23 @@ namespace project5_6.Controllers
             ViewBag.main_storage = (from x in _context.Laptop.OrderByDescending(x => x.main_storage) select x.main_storage).Distinct();
 
             IQueryable<Laptop> MyContext = _context.Laptop.OrderByDescending(x => x.supply);
+
+            if (sortby == "name_asc")
+            {
+                MyContext = _context.Laptop.OrderBy(x => x.model_name);
+            }
+            else if (sortby == "name_des")
+            {
+                MyContext = _context.Laptop.OrderByDescending(x => x.model_name);
+            }
+            else if (sortby == "price_asc")
+            {
+                MyContext = _context.Laptop.OrderBy(x => x.price);
+            }
+            else if (sortby == "price_des")
+            {
+                MyContext = _context.Laptop.OrderByDescending(x => x.price);
+            }
 
             if (brand != null)
             {

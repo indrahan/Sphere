@@ -34,8 +34,19 @@
             <h5>Storage Size</h5>
             @Html.DropDownList("main_storage", new SelectList(ViewBag.main_storage), string.Empty)
             <br>
+            <h5>Sort by</h5>
+            <select name="sortby">
+                <option value=""></option>
+                <option value="">Voorraad</option>
+                <option value="name_asc">Name A-Z</option>
+                <option value="name_des">Name Z-A</option>
+                <option value="price_asc">Price ascending</option>
+                <option value="price_des">Price descending</option>
+            </select>
+            <br>
             <br>
             <input class="btn btn-primary" type="submit" value="Filter"/>
+            <input class="btn btn-default" type="reset" value="Reset"/>
             }
         </div>
     </form>
