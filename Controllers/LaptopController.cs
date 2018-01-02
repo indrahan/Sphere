@@ -32,6 +32,7 @@ namespace project5_6.Controllers
 
             IQueryable<Laptop> MyContext = _context.Laptop.OrderByDescending(x => x.supply);
 
+            // Sorting
             if (sortby == "name_asc")
             {
                 MyContext = _context.Laptop.OrderBy(x => x.model_name);
@@ -49,6 +50,8 @@ namespace project5_6.Controllers
                 MyContext = _context.Laptop.OrderByDescending(x => x.price);
             }
 
+
+            // Filtering
             if (brand != null)
             {
                 MyContext = MyContext.Where(p => p.brand.Contains(brand));
