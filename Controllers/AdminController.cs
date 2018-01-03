@@ -21,10 +21,11 @@ namespace project5_6.Controllers
             _context = context;
 
         }
+
         [Authorize(Roles = "Administrator")]
         public IActionResult Index()
         {
-            ViewData["Message"] = "This a basic admin page";
+            ViewBag.OutOfStockCount = (from x in _context.Laptop where x.supply <= 0 select x.Id).Count();
             return View();
         }
 
@@ -104,7 +105,8 @@ namespace project5_6.Controllers
         
         public IActionResult Statistics()
         {
-            ViewBag.OutOfStockCount = (from x in _context.Laptop where x.supply <= 2 select x.Id).Count();
+            ViewBag.OutOfStockCount = (from x in _context.Laptop where x.supply <= 0 select x.Id).Count();
+            ViewBag.ReStockCount = (from x in _context.Laptop where x.supply <= 2 select x.Id).Count();
             return View();
         }
         
