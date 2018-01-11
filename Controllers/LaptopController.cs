@@ -28,7 +28,7 @@ namespace project5_6.Controllers
             ViewBag.screen_size = (from x in _context.Laptop.OrderBy(x => x.screen_size) select x.screen_size  ).Distinct();
             ViewBag.recommended_purpose = (from x in _context.Laptop.OrderBy(x => x.recommended_purpose) select x.recommended_purpose).Distinct();
             ViewBag.ram = (from x in _context.Laptop.OrderByDescending(x => x.ram) select x.ram).Distinct();
-            ViewBag.main_storage = (from x in _context.Laptop.OrderBy(x => x.main_storage) select x.main_storage).Distinct();
+            ViewBag.main_storage = (from x in _context.Laptop.OrderByDescending(x => x.main_storage) select x.main_storage).Distinct();
 
             // laptop == brand voor nu i know fucked up
             var webContext2 = _context.Laptop.Where(p => p.processor.Contains(processor));

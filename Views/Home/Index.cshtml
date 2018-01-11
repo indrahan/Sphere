@@ -21,7 +21,6 @@
 
 		<!-- Website CSS style -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="../../wwwroot/css/stylesheet.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Pacifico&subset=latin-ext,vietnamese" rel="stylesheet">
 		<!-- Website Font style -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -42,7 +41,7 @@
                 <a asp-controller="ClickedLaptop" name="submit" asp-action="" asp-route-id="@item.Id"><img src="@Url.Content("~/images/" + item.image_id + ".jpg")" style="width:300;height:240px" class="img-responsive"></a>
       			<center><h4>@Html.DisplayFor(modelItem => item.brand) - @Html.DisplayFor(modelItem => item.model_name)</h4></center>	
     		</span>        
-  		</div> 
+  		</div>
           }
 		<!-- END PRODUCTS -->
 	</div>
