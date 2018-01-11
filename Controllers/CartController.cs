@@ -18,19 +18,21 @@ namespace project5_6.Controllers
         public CartController(WebContext context)
         {
             _context = context;
+            
         }
 
         // GET: Cart
         public async Task<IActionResult> Index(string id)
         {
+            ViewBag.inCart = _context.Cart.Where(c => c.user_id == id).Count();
             var webContext = _context.Cart.Where(p => p.user_id.Equals(id));
 
             return View(await webContext.ToListAsync());
         }
-        [Authorize(Roles = "Administrator")]
 
         public async Task<IActionResult> Index2()
         {
+            
             return View(await _context.Cart.ToListAsync());
         }
 
@@ -38,6 +40,7 @@ namespace project5_6.Controllers
         {
             var webContext = _context.Cart.Where(p => p.user_id.Equals(id));
             ViewBag.TotalPrice = _context.Cart.Where(c => c.user_id == id).Sum(c => c.price);
+
             return View(await webContext.ToListAsync());
         }
 

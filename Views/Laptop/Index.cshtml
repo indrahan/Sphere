@@ -7,13 +7,21 @@
     ViewData["Title"] = "Index";
 }
 <div class="row" style="padding-top:20px;">
-    @using (Html.BeginForm()) {<p class="text-center">@Html.TextBox("SearchString") <input class="btn btn-primary" type="submit" value="Search" /></p>}        
+    @using (Html.BeginForm()) 
+    {<p class="text-center">@Html.TextBox("SearchString") 
+        <input class="btn btn-primary" type="submit" value="Search" /></p>
+    }        
+
+
+
+
+    
     <hr />
 </div>
 <div class="row">
-<div class="col-md-2">
+<!-- <div class="col-md-2">
     <form class="form-horizontal">
-        <div class="form-group">
+        <nav class="form-group" data-spy="affix">
             @using (Html.BeginForm()) {
             <h5>Brand</h5>
             @Html.DropDownList("laptop", new SelectList(ViewBag.Laptop), string.Empty)
@@ -36,10 +44,10 @@
             <br>
             <input class="btn btn-info" type="submit" value="Filter"/>
             }
-        </div>
+        </nav>
     </form>
-</div>
-<div class="col-md-10">
+</div> -->
+<div class="col-md-12">
     @foreach (var item in Model)
     {
         <div class="col-md-4">                

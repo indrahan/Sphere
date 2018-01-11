@@ -12,6 +12,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link href="../../wwwroot/css/stylesheet.css" rel="stylesheet">
     </environment>
 
     <environment include="Development">
@@ -38,7 +39,7 @@
     <script src="~/lib/shieldui/js/shieldui-all.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" data-type="affix">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,14 +57,11 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                   
-                    @if (User.IsInRole("Administrator"))
+                    @if (!User.IsInRole("Administrator"))
                     {
                     <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
                     }
-
-                    
-
-                    @if (User.IsInRole("Administrator"))
+                    @if (!User.IsInRole("Administrator"))
                     {
                     <li><a asp-area="" asp-controller="Laptop" asp-action="Index">Show all products</a></li>
                    
@@ -74,7 +72,34 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+<form class="form-horizontal" >
+        <nav class="form-group" style="margin-left:100px; margin-top:50px" data-spy="affix">
+            @using (Html.BeginForm()) {
+            <h5>Brand</h5>
+            @Html.DropDownList("laptop", new SelectList(ViewBag.Laptop), string.Empty)
+            <br>
+            <h5>Processor</h5>
+            @Html.DropDownList("processor", new SelectList(ViewBag.processor), string.Empty)
+            <br>
+            <h5>Screen Size</h5>
+            @Html.DropDownList("screen_size", new SelectList(ViewBag.screen_size), string.Empty)
+            <br>
+            <h5>Purpose</h5>
+            @Html.DropDownList("recommended_purpose", new SelectList(ViewBag.recommended_purpose), string.Empty)
+            <br>
+            <h5>RAM</h5>
+            @Html.DropDownList("ram", new SelectList(ViewBag.ram), string.Empty)
+            <br>
+            <h5>Storage Size</h5>
+            @Html.DropDownList("main_storage", new SelectList(ViewBag.main_storage), string.Empty)
+            <br>
+            <br>
+            <input class="btn btn-info" type="submit" value="Filter"/>
+            }
+        </nav>
+    </form>
+    <div class="container">
+        
         @RenderBody()
         <hr />
         <footer>
