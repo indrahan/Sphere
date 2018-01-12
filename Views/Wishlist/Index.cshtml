@@ -1,15 +1,16 @@
 @model IEnumerable<project5_6.Models.Wishlist>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Manage wishlist items";
 }
 
-<h2>Index</h2>
+<h2>Manage wishlist items</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-success" asp-controller="Admin" asp-action="Index">Back</a>
+    <a class="btn btn-info" asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-responsive">
     <thead>
         <tr>
                 <th>

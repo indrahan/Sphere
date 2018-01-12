@@ -38,7 +38,7 @@
                 {
                     <tr class="danger">
                         <td>
-                            <img style="width:70;height:50px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
+                            <img style="width:50;height:50px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.brand)
@@ -53,7 +53,7 @@
                             €@Html.DisplayFor(modelItem => item.price),-
                         </td>
                         <td>
-                            <a class="btn btn-info" href="#">Order new</a>
+                            <a class="btn btn-primary" href="#">Order new</a>
                         </td>
                     </tr>
                 }
@@ -61,13 +61,13 @@
                 {
                     <tr>
                         <td>
-                            <img style="width:70;height:50px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
+                            <img style="width:50;height:50px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.brand)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.model_name)
+                            <a asp-controller="ClickedLaptop" asp-action="" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.model_name)</a>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.supply)
@@ -76,7 +76,7 @@
                             €@Html.DisplayFor(modelItem => item.price),-
                         </td>
                         <td>
-                            <a class="btn btn-info" href="#">Order new</a>
+                            <a class="btn btn-primary" href="#">Order new</a>
                         </td>
                     </tr>
                 }

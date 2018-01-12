@@ -60,15 +60,10 @@
                     {
                     <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
                     }
-
-                    
-
                     @if (User.IsInRole("Administrator"))
                     {
-                    <li><a asp-area="" asp-controller="Laptop" asp-action="Index">Show all products</a></li>
-                   
+                    <li><a asp-area="" asp-controller="Laptop" asp-action="Index">Show all products</a></li>                  
                     }
-
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -78,7 +73,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy;Sphere 2017</p>
+            <p>&copy; Sphere 2017</p>
         </footer>
     </div>
     @RenderSection("Scripts", required: false)

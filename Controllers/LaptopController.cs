@@ -21,7 +21,7 @@ namespace project5_6.Controllers
         }
 
         // GET: Laptop
-        public async Task<IActionResult> Index(string processor, string laptop, string recommended_purpose, string screen_size, string ram, string main_storage, bool hdmi)
+        public async Task<IActionResult> Index(string processor, string brand, string recommended_purpose, string screen_size, string ram, string main_storage, string sortby)
         {
             ViewBag.laptop = (from x in _context.Laptop.OrderBy(x => x.brand) select x.brand).Distinct();
             ViewBag.processor = (from x in _context.Laptop.OrderBy(x => x.processor)select x.processor).Distinct();
@@ -30,53 +30,54 @@ namespace project5_6.Controllers
             ViewBag.ram = (from x in _context.Laptop.OrderByDescending(x => x.ram) select x.ram).Distinct();
             ViewBag.main_storage = (from x in _context.Laptop.OrderByDescending(x => x.main_storage) select x.main_storage).Distinct();
 
-            // laptop == brand voor nu i know fucked up
-            var webContext2 = _context.Laptop.Where(p => p.processor.Contains(processor));
-            var webContext3 = _context.Laptop.Where(p => p.brand.Contains(laptop));
-            var webContext4 = webContext3.Where(p => p.processor.Contains(processor));
-            var webContext5 = _context.Laptop.Where(p => p.recommended_purpose.Contains(recommended_purpose));
-            var webContext6 = _context.Laptop.Where(p => p.screen_size.Contains(screen_size));
-            var webContext7 = _context.Laptop.Where(p => p.ram.Contains(ram));
-            var webContext8 = _context.Laptop.Where(p => p.main_storage.Contains(main_storage));
-            var webContext9 = _context.Laptop.Where(p => p.hdmi.Equals(hdmi));
+            IQueryable<Laptop> MyContext = _context.Laptop.OrderByDescending(x => x.supply);
+
+            // Sorting
+            if (sortby == "name_asc")
+            {
+                MyContext = _context.Laptop.OrderBy(x => x.model_name);
+            }
+            else if (sortby == "name_des")
+            {
+                MyContext = _context.Laptop.OrderByDescending(x => x.model_name);
+            }
+            else if (sortby == "price_asc")
+            {
+                MyContext = _context.Laptop.OrderBy(x => x.price);
+            }
+            else if (sortby == "price_des")
+            {
+                MyContext = _context.Laptop.OrderByDescending(x => x.price);
+            }
 
 
-            if (processor != null && laptop == null)
+            // Filtering
+            if (brand != null)
             {
-                return View(await webContext2.ToListAsync());
+                MyContext = MyContext.Where(p => p.brand.Contains(brand));
             }
-            if (processor == null && laptop != null)
+            if (processor != null)
             {
-                return View(await webContext3.ToListAsync());
+                MyContext = MyContext.Where(p => p.processor.Contains(processor));
             }
-            if (processor != null && laptop != null)
+            if (screen_size != null)
             {
-                return View(await webContext4.ToListAsync());
+                MyContext = MyContext.Where(p => p.screen_size.Contains(screen_size));
             }
-            if (processor == null && laptop == null && recommended_purpose != null)
+            if (recommended_purpose != null)
             {
-                return View(await webContext5.ToListAsync());
+                MyContext = MyContext.Where(p => p.recommended_purpose.Contains(recommended_purpose));
             }
-            if (processor == null && laptop == null && recommended_purpose == null && screen_size != null)
+            if (ram != null)
             {
-                return View(await webContext6.ToListAsync());
+                MyContext = MyContext.Where(p => p.ram.Contains(ram));
             }
-            if (processor == null && laptop == null && recommended_purpose == null && screen_size == null && ram != null)
+            if (main_storage != null)
             {
-                return View(await webContext7.ToListAsync());
+                MyContext = MyContext.Where(p => p.main_storage.Contains(main_storage));
             }
-            if (processor == null && laptop == null && recommended_purpose == null && screen_size == null && ram == null && main_storage != null)
-            {
-                return View(await webContext8.ToListAsync());
-            }
-            if (processor == null && laptop == null && recommended_purpose == null && screen_size == null && ram == null && main_storage == null && hdmi == true)
-            {
-                return View(await webContext9.ToListAsync());
-            }
-            else
-            {
-                return View(await _context.Laptop.OrderByDescending(x=> x.supply).ToListAsync());
-            }
+
+            return View(await MyContext.ToListAsync());
         }
 
         public async Task<IActionResult> Index2(int id)

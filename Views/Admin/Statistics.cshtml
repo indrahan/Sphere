@@ -7,24 +7,25 @@
 <hr />
 <div class="row">
     <div class="col-md-6">
-        @if (ViewBag.OutOfStockCount == 0)
+        <h4>Restock list</h4>
+        @if (ViewBag.ReStockCount == 0)
         {
-            <h3>
-                All products are in stock.
-            </h3>
+            <p>There are no products that need a restock.</p>
+            <a asp-controller="Admin" asp-action="ProductsOutOfStock" class="btn btn-primary disabled">See List</a>
         }
         else
         {
-            <h4>
-                There are @ViewBag.OutOfStockCount products that need a restock
-            </h4>
-            <a asp-area="" asp-controller="Admin" asp-action="ProductsOutOfStock" class="btn btn-info">See Products</a>
+            <p>
+                There are <strong>@ViewBag.ReStockCount</strong> products that need a restock.<br>
+                <strong>@ViewBag.OutOfStockCount</strong> products are completely out of stock.
+            </p>
+            <a class="btn btn-warning" asp-controller="Admin" asp-action="ProductsOutOfStock">See List <span class="badge">@ViewBag.OutOfStockCount</span></a>
         }
     </div>
     <div class="col-md-6">
         <h4>
             Products added barchart
         </h4>
-        <a class="btn btn-info" href="Statistics/Products/ProductsAdded/Acer/2017">See Chart</a>
+        <a class="btn btn-primary" href="Statistics/Products/ProductsAdded/All/2017">See Chart</a>
     </div>
 </div>

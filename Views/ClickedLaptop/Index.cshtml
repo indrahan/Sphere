@@ -3,12 +3,14 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-@{ViewData["Title"] = "Clicked";}
 @foreach (var item in Model) {
+
+ViewData["Title"] = item.brand + " " + item.model_name;
 
 <div class="row">
 	<div class="col-md-8">
-		<div class="col-md-12">
+		<div class="col-md-12" style="margin-top:20px;">
+			<h4><a asp-controller="Laptop" asp-action="Index">All Products</a> - @Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)</h4>
 			<img src="@Url.Content("~/images/" + item.image_id + ".jpg")" class="img-responsive" style="width:350px;height:350px;">
 			<h3 class="text-primary"><strong>@Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)</strong> @Html.DisplayFor(modelItem => item.processor) - @Html.DisplayFor(modelItem => item.graphic_card) - @Html.DisplayFor(modelItem => item.ram) RAM</h3>
 			<p>
@@ -31,7 +33,8 @@
 		</div>
 	</div>
 	<div class="col-md-4">
-		<h3 style="margin-top:30%;"><strong>€@Html.DisplayFor(modelItem => item.price),-</strong></h3>
+	<div class="col-md-3 affix">
+		<h3 style="margin-top:35%;"><strong>€@Html.DisplayFor(modelItem => item.price),-</strong></h3>
 		@if (item.supply != 0)
 		{
 			<p style="color:green;">
@@ -53,6 +56,7 @@
             	@Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-danger btn-block btn-large glyphicon glyphicon-remove disabled" })
     		}
             @Html.ActionLink("","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-block btn-large glyphicon glyphicon-heart" })<br />
+	</div>
 	</div>
 </div>
 }

@@ -4,7 +4,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Products";
 }
 <div class="row" style="padding-top:20px;">
     @using (Html.BeginForm()) {<p class="text-center">@Html.TextBox("SearchString") <input class="btn btn-primary" type="submit" value="Search" /></p>}        
@@ -12,11 +12,12 @@
 </div>
 <div class="row">
 <div class="col-md-2">
+<div class="col-md-2 affix">
     <form class="form-horizontal">
         <div class="form-group">
             @using (Html.BeginForm()) {
             <h5>Brand</h5>
-            @Html.DropDownList("laptop", new SelectList(ViewBag.Laptop), string.Empty)
+            @Html.DropDownList("brand", new SelectList(ViewBag.Laptop), string.Empty)
             <br>
             <h5>Processor</h5>
             @Html.DropDownList("processor", new SelectList(ViewBag.processor), string.Empty)
@@ -33,13 +34,25 @@
             <h5>Storage Size</h5>
             @Html.DropDownList("main_storage", new SelectList(ViewBag.main_storage), string.Empty)
             <br>
+            <h5>Sort by</h5>
+            <select name="sortby">
+                <option value=""></option>
+                <option value="">Stock</option>
+                <option value="name_asc">Name A-Z</option>
+                <option value="name_des">Name Z-A</option>
+                <option value="price_asc">Price ascending</option>
+                <option value="price_des">Price descending</option>
+            </select>
             <br>
-            <input class="btn btn-info" type="submit" value="Filter"/>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Filter"/>
+            <a class="btn btn-default" asp-action="Index">Reset</a> 
             }
         </div>
     </form>
 </div>
-<div class="col-md-10">
+</div>
+<div class="col-md-10 col-xs-10">
     @foreach (var item in Model)
     {
         <div class="col-md-4">                
@@ -66,20 +79,21 @@
                     </strong>
                 </h4>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         @if (User.IsInRole("Administrator"))
                         {
                             <a class="btn btn-default glyphicon glyphicon-edit" asp-area="" asp-controller="Laptop" asp-action="Edit" asp-route-id="@item.Id"></a>
                         }
                     </div>
-                    <div class="col-md-6">
-                        <p class="text-right">
+                    <div class="col-md-10">
+                        <p class="text-right" style="color:red;">
                             @if (item.supply != 0)
                             {
                                 @Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-success btn-large glyphicon glyphicon-shopping-cart" })
                             }
                             else
                             {
+                                <span class="glyphicon glyphicon-remove"></span><strong> Out of stock</strong>
                                 @Html.ActionLink("","Create2",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-danger btn-large glyphicon glyphicon-remove disabled" })
                             }
                             @Html.ActionLink("","Create3",new {image_id = @item.image_id, brand = @item.brand, model_name = @item.model_name, price = @item.price, user_id = @UserManager.GetUserId(User)},new { @class = "btn btn-primary btn-large glyphicon glyphicon-heart" })<br />
