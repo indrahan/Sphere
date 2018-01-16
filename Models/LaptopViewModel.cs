@@ -32,6 +32,7 @@ namespace project5_6.Models
         public bool staff_picked { get; set; }
         public string recommended_purpose { get; set; }
         public int supply { get; set; }
+        public int viewcount { get; set; }
         
 
     }

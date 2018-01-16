@@ -49,6 +49,10 @@ namespace project5_6.Controllers
             {
                 MyContext = _context.Laptop.OrderByDescending(x => x.price);
             }
+            else if (sortby == "most_views")
+            {
+                MyContext = _context.Laptop.OrderByDescending(x => x.viewcount);
+            }
 
 
             // Filtering
@@ -78,6 +82,18 @@ namespace project5_6.Controllers
             }
 
             return View(await MyContext.ToListAsync());
+        }
+
+        public IActionResult p(int id)
+        {
+            IQueryable<Laptop> MyContext = _context.Laptop;
+            return View(MyContext.ToList());
+        } 
+        
+        public IActionResult Recommended()
+        {
+            var webContext = _context.Laptop.OrderByDescending(p => p.viewcount).Take(3);
+            return View("_RecommendedPartial", webContext.ToList());
         }
 
         public async Task<IActionResult> Index2(int id)

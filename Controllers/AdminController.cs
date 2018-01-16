@@ -110,6 +110,13 @@ namespace project5_6.Controllers
             return View();
         }
         
+        [Route("Admin/Statistics/PopularProducts")]
+        public IActionResult PopularProducts()
+        {
+            var webContext = _context.Laptop.OrderByDescending(p => p.viewcount).Take(5);
+            return View(webContext.ToList());
+        }
+
         [Route("Admin/Statistics/Products/OutOfStock")]
         public IActionResult ProductsOutOfStock()
         {

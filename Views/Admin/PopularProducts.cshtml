@@ -1,0 +1,44 @@
+@model IEnumerable<project5_6.Models.Laptop>
+
+@{
+    ViewData["Title"] = "Popular Products";
+}
+
+<h2>Popular Products</h2>
+<a class="btn btn-success" asp-action="Statistics">Back</a>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <h4 class="text-primary">Top 5 viewed products</h4>
+        <table class="table table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Views</th>
+                </tr>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img style="width:50;height:50px" src="@Url.Content("~/images/" + item.image_id + ".jpg")" />
+                            </td>
+                            <td>
+                                <a asp-controller="ClickedLaptop" asp-action="" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.brand) @Html.DisplayFor(modelItem => item.model_name)</a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.viewcount)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </thead>
+        </table>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+</div>
+

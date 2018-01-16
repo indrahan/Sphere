@@ -1,0 +1,13 @@
+@model IEnumerable<project5_6.Models.Laptop>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+        <span class="thumbnail">
+            <a asp-controller="ClickedLaptop" asp-route-id="item.Id">
+                <img src="@Url.Content("~/images/" + item.image_id + ".jpg")" class="img-responsive" />
+                <h4 class="text-primary text-center">@Html.DisplayFor(modelItem => item.brand) - @Html.DisplayFor(modelItem => item.model_name)</h4>
+            </a>
+        </span>
+    </div>
+}

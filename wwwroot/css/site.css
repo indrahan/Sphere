@@ -3,6 +3,12 @@
     padding-bottom: 20px;
 }
 
+.admin-box
+{
+    background-color: #f4f4f4;
+    height: 100px;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

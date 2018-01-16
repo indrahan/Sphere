@@ -23,7 +23,13 @@ namespace project5_6.controllers
         public async Task<IActionResult> Index(int id)
         {
             var webContext = _context.Laptop.Where(p => p.Id.Equals(id));
-
+            var laptop = await _context.Laptop
+                .SingleOrDefaultAsync(m => m.Id == id);
+            laptop.viewcount += 1;
+            _context.SaveChanges();
+            
+            ViewBag.recommended = _context.Laptop.OrderByDescending(p => p.viewcount).Take(3).ToList();
+                        
             return View(await webContext.ToListAsync());
         }
 

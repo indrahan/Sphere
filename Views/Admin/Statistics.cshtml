@@ -2,12 +2,27 @@
     ViewData["Title"] = "Statistics";
 }
 
+<style>
+    .admin-box {
+        background-color: #f4f4f4;
+        height: 150px;
+        border-style: solid;
+        border-color: #4c6a92;
+        border-left-width: 5px;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        padding-left: 10px;
+    }
+</style>
+
 <h2>Statistics</h2>
 <a class="btn btn-success" asp-action="Index">Back</a>
 <hr />
 <div class="row">
     <div class="col-md-6">
-        <h4>Restock list</h4>
+        <span class="thumbnail admin-box">
+        <h4 class="text-primary">Restock list</h4>
         @if (ViewBag.ReStockCount == 0)
         {
             <p>There are no products that need a restock.</p>
@@ -21,11 +36,24 @@
             </p>
             <a class="btn btn-warning" asp-controller="Admin" asp-action="ProductsOutOfStock">See List <span class="badge">@ViewBag.OutOfStockCount</span></a>
         }
+        </span>
     </div>
     <div class="col-md-6">
-        <h4>
+        <span class="thumbnail admin-box">
+        <h4 class="text-primary">
             Products added barchart
         </h4>
         <a class="btn btn-primary" href="Statistics/Products/ProductsAdded/All/2017">See Chart</a>
+        </span>
+    </div>
+</div>
+<div class="row" style="margin-top:30px;">
+    <div class="col-md-6">
+        <span class="thumbnail admin-box">
+        <h4 class="text-primary">
+            Popular products
+        </h4>
+        <a class="btn btn-primary" asp-controller="Admin" asp-action="PopularProducts">See List</a>
+        </span>
     </div>
 </div>
